@@ -1,0 +1,54 @@
+
+@mixin pseudo-classes(
+    $map: (hover: (),  active: (),  visited: ()),
+    $into-pseudo-elt: ""
+  ){
+    
+    @if($into-pseudo-elt != ""){
+      @if($into-pseudo-elt == "before" or $into-pseudo-elt == "after"){
+        $into-pseudo-elt: "::" + $into-pseudo-elt;
+      }@else {
+        $into-pseudo-elt: "";
+      }
+    }
+    @each $key, $value in $map{
+      &#{$key}{
+        @each $k,$v in $value{
+          #{$k}: $v;
+        }
+      }
+  }
+}
+
+@function btn-coeur($content, $--modifier: ""){
+
+    // $btn-coeur: 
+    // (
+    //   ":before": (content: "🧡"),
+    //   ":after": (content: "🤍"),
+      // hover: (color: red),
+      // active: (backround: red),
+      // visited: (content: "🧡")
+    // );
+    @if($--modifier == ""){
+      @return 
+        (
+          "": (content: "#{$content}"),
+        );
+    }
+    @return 
+      (
+        ":before": (content: "#{$--modifier}", position: absolute),
+        ":after": (content: "#{$content}",position: relative,
+          transition: opacity .5s
+        ),
+        ":hover::after": (opacity: 0),
+        ":visited": (border:solid red),
+        // active: (backround: red),
+        // visited: (content: "#{$--modifier}")
+      );
+  }
+
+body{
+    @include pseudo-classes(btn-coeur(🤍,🧡), "before");
+}

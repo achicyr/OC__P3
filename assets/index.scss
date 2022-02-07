@@ -1,0 +1,285 @@
+@use "sass:list";
+@use "sass:map";
+
+@import "./sass/index.scss";
+
+
+@keyframes accueil{
+    0%{}
+    100%{}
+}
+@keyframes menu{
+    0%{}
+    100%{}
+}
+
+/*
+ON UTILISE LES %placeholder POUR DÉFINIR 1 OU DES PROPRIÉTÉS RÉPONDANTS À 2 CAS: 
+  1 =>  QUI UTILISENT DES VARIABLES QUE L'ON A DÉFINI
+  2 =>  QUI UTILISENT DES TERMES FIXES
+*/
+/*
+ON UTILISE LES @mixin POUR DÉFINIR UN ENSEMBLE DE PROPRIÉTÉS
+*/
+/*
+ON UTILISE LES @function POUR RÉALISER UN CALCUL OU TRAITER UNE VALEUR
+PUIS RETOURNER UNE VALEUR 
+*/
+
+
+
+
+
+
+body{
+    >main{
+        >section{
+            // position: relative;
+            // padding-bottom: 2em;
+            // >img{width:100%;}
+            // >h1{
+            //     margin: -2em 0 0;
+            //     font-size: 2em;
+            //     background: #eee;
+            //     padding: 1em;
+            //     border-radius: 1.5em 1.5em 0 0;
+            //     position: absolute;
+            //     bottom: 0;
+            //     width: 100%;
+            //     // border-bottom: solid;
+            // }
+            // i{
+            //     @extend .icon_gradient;
+            //     font-weight:100 !important;
+            //     float:right;
+            // }
+        }
+        >article{
+            // padding:1em;
+            // >h2{
+            //     position:relative;
+            //     display: inline-block;
+            //     &:after{
+            //         content: "";
+            //         position: absolute;
+            //         bottom: -10px;
+            //         left: 0px;
+            //         width: 50px;
+            //         border-bottom: 5px solid $ternary;
+            //     }
+            // }
+            // >ul{
+            //     >li{
+            //         position:relative;
+            //         background:white;
+            //         overflow:hidden;
+            //         @extend .listItemRound;
+            //         >h3{margin:0;}
+            //         >p{
+            //             margin-bottom: 0;
+            //             span{
+            //                 display: inline-block;
+            //                 overflow: hidden;
+            //                 text-overflow: ellipsis;
+            //                 white-space: nowrap;
+            //                 width:90%;
+            //                 transition: width .4s;
+            //             }
+            //             >b{
+            //                 width:10%;
+            //                 vertical-align: top;
+            //             }
+            //         }
+            //         >strong{
+            //             // position: absolute;
+            //             // right:2em;
+            //             // bottom:1em;
+            //         }
+            //         &:before{
+            //             content:"";
+            //             display: flex;
+            //             float:right;
+            //             border-radius: 0 20px 20px 0;
+            //             background: $ternary;
+            //             width:0%;
+            //             height: 100%;
+            //             transition: width .4s;
+            //             position:absolute;
+            //             top:0;
+            //             right: 0;
+            //             >span{position: absolute;right: 10%;}
+            //         }
+            //         &:after{
+            //             content:"";
+            //             position:absolute;
+            //             font-family: "Font Awesome 5 Pro";
+            //             content:"\f00c";
+            //             right:-10%;
+            //             top: calc(50% - 1em/2);
+            //             background: white;
+            //             color:$ternary;
+            //             border-radius: 20px;
+            //             padding: 5px;
+            //             transition: transform .6s, right .4s;
+            //         }
+            //         &:hover{
+            //             >p>span{width:70%;}
+            //             &:before{
+            //                 width:20%;
+            //             }
+            //             &:after{
+            //                 transform: rotate(720deg);
+            //                 right: 7.5%;
+            //             }
+            //         }
+            //     }
+            // }
+            // >button{
+            //     @extend .button1;
+            // }
+        }
+    }
+}
+
+
+
+
+body{
+    margin:0;
+    >header{
+        // font-family: $police1;
+        // text-align: center;
+        // box-shadow: 0px 1px 5px 0.1px black;
+        // padding: 20px;
+        img{
+            // height: 50px;
+        }
+        a{
+            // position: absolute;
+            // left: 0;
+            // font-size: 50px;
+            // line-height: .75em;
+        }
+    }
+    >nav{
+        // text-align: center;
+        form{
+            // padding:10px;
+            // display: flex;
+            // justify-content: center;
+            // background: rgba(0, 0, 0, 0.1);
+            // >i{width:50px;}
+            // >input{border:none;background: transparent;}
+        }
+        section{     
+            // padding-top: 50px;
+            // >*{margin: auto}
+            // >h1{font-size: 1.5em;width: 80%;}
+            // >p{width: 80%;font-size: 1.2em;margin:20px auto;}
+            // >button{
+            //     box-shadow:0 3px 10px -5px black;
+            //     background:linear-gradient($secondary, $primary);
+            //     color:white;
+            //     border-radius: 20px;
+            //     font-weight: 550;
+            //     padding:15px;
+            //     border:none;
+            // }
+        }
+    }
+    >main{
+        // >*{padding: 20px;}
+        >section{
+            >h2{
+
+            }
+            >ul{
+                // counter-reset: listFonctionnement;
+                // >li{
+                //     &:hover{
+                //         background:rgba(147,86,220,.2);
+                //         >i{color:$primary;}
+                //     }
+                //     position: relative;
+                //     cursor:pointer;
+                //     &:before{
+                //         position: absolute;
+                //         left: -10px;
+                //         top: calc(50% - .5em);
+                //         content: counter(listFonctionnement);
+                //         border-radius: 20px;
+                //         background: $primary;
+                //         width: 20px;
+                //         height: 20px;
+                //         text-align: center;
+                //         color: white;
+                //         line-height: 20px;
+                //         font-size: .85em;
+                //     }
+                //     counter-increment: listFonctionnement;
+                //     box-shadow:0 3px 10px -5px black;
+                //     padding:20px;
+                //     margin-bottom: 20px;
+                //     border-radius: 20px;
+                //     >i{color: gray;margin-right: 1em;}
+                //     >span{}
+                // }
+            }
+        }
+        >article{
+            // background: #eee;
+            // padding-bottom: 100px;
+            >h2{}
+            >ul{
+                // >li{
+                //     position: relative;
+                //     box-shadow:0 3px 15px -10px black;
+                //     background: white;
+                //     margin-top: 20px;
+                //     border-radius: 20px;
+                //     padding-bottom: 20px;
+                //     >img{
+                //         border-radius: 20px 20px 0 0;
+                //         width: 100%;
+                //         object-fit: cover;
+                //     }
+                //     >h3,>p{margin:5px 20px;}
+                //     >h3{}
+                //     >p{}
+                //     >a{
+                //         &:hover{
+                //             background: -webkit-linear-gradient(#9c47fc, red);
+                //             -webkit-background-clip: text;
+                //             -webkit-text-fill-color: transparent;
+                //             font-weight: 900 !important;
+                //         }
+                //         transition: font-weight .4s;
+                //         position: absolute;
+                //         right: 2em;
+                //         bottom:3em;
+                //         font-weight: 100 !important;
+                //     }
+                // }
+            }
+        }
+    }
+    >footer{
+        // background: #353535;
+        // padding: 20px;
+        >a{
+            // color:white;
+        }
+        >ul{
+            // >li{
+            //     margin-bottom: 5px;
+            //     >i{width:30px;}
+            //     >a{
+            //         color:white;
+            //     }
+            // }
+        }
+    }
+}
+
+
+

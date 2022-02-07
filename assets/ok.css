@@ -1,0 +1,18 @@
+@charset "UTF-8";
+body:before {
+  content: "🧡";
+  position: absolute;
+}
+body:after {
+  content: "🤍";
+  position: relative;
+  transition: opacity 0.5s;
+}
+body:hover::after {
+  opacity: 0;
+}
+body:visited {
+  border: solid red;
+}
+
+/*# sourceMappingURL=ok.css.map */

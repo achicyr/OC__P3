@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh my food: </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@1..900&family=Shrikhand&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/normalize.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+    <!-- header>img[src="assets/images/logo/ohmyfood.png" alt="ohmyfood"]+a[href="/"]{unicode} -->
+    <header class="headerbar">
+        <img class="headerbar__logo" src="assets/images/logo/ohmyfood.png" alt="ohmyfood">
+    </header>
+
+    <!-- nav>(form>i.fa.fa-map+input)+section>h1{Recevez le menu qui vous convient}+p{Retrouvez des restaurants d'exeption, sélectionnés par nos soins}+button{Explorer nos restaurants} -->
+    <nav class="nav">
+        <form class="nav__form">
+            <i class="fa fa-map-marker-alt"></i>
+            <input type="text" placeholder="Paris, Belleville">
+        </form>
+        <section class="nav__jumbotron">
+            <h1>Reservez le menu qui vous convient</h1>
+            <p>Découvrez des restaurants d'exeption, sélectionnés par nos soins</p>
+            <a href="#">Explorer nos restaurants</a>
+        </section>
+    </nav>
+
+    <main class="mainAccueil">
+        <!-- section.fonctionnement>h2{Fonctionnement}+ul>(li>i.fa.fa-store+span{Choisissez un restaurant})*3 -->
+        <section class="fonctionnement">
+            <h2 class="fonctionnement__titre">Fonctionnement</h2>
+            <ul class="fonctionnement__list">
+                <li><i class="fa fa-mobile-alt"></i><span>Choisissez un restaurant</span></li>
+                <li><i class="fa fa-list"></i><span>Choisissez un restaurant</span></li>
+                <li><i class="fa fa-store"></i><span>Choisissez un restaurant</span></li>
+            </ul>
+        </section>
+        <!-- article>h2{Restaurants}+ul>(li>img[src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""]+h3{La palette du goût}+p{Ménilmontant}+i.fa.fa-heart)*4 -->
+        <article class="cartes">
+            <h2 class="cartes__titre">Restaurants</h2>
+            <ul class="cartes__list">
+                <li>
+                    <img src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <i href="#" class="fa fa-heart"></i>
+                    <a href="menu-.html" title="à la française"></a>
+                </li>
+                <li>
+                    <img src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <i href="#" class="fa fa-heart"></i>
+                    <a href="menu-.html" title="la note enchantée"></a>
+                </li>
+                <li>
+                    <img src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <i href="#" class="fa fa-heart"></i>
+                    <a href="menu-.html" title="la palette du gout"></a>
+                </li>
+                <li>
+                    <img src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <i href="#" class="fa fa-heart"></i>
+                    <a href="menu-.html" title="les délices du sens"></a>
+                </li>
+            </ul>
+        </article>
+    </main>
+
+    <!-- footer>img[src="" alt=""]+ul>(li>i.fa.fa-+a[href=""])*4 -->
+    <footer class="footer">
+        <a class="footer__logo" href="/">ohmyfood</a>
+        <ul class="footer__list">
+            <li><i class="fa fa-utensils"></i><a href="#">Proposer un restaurant</a></li>
+            <li><i class="fa fa-handshake"></i><a href="#">Devenir partenaire</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="mailto:">Contact</a></li>
+        </ul>
+    </footer>
+    <div id="spinner-home">
+        <div class="blue-orbit leo">
+        </div>
+
+        <div class="green-orbit leo">
+        </div>
+
+        <div class="red-orbit leo">
+        </div>
+
+        <div class="white-orbit w1 leo">
+        </div>
+        <div class="white-orbit w2 leo">
+        </div>
+        <div class="white-orbit w3 leo">
+        </div>
+        <!-- https://codepen.io/jotavejv/pen/KZXjqL -->
+    </div>
+</body>
+
+</html>
