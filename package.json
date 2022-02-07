@@ -1,0 +1,21 @@
+{
+  "name": "WORKOUT_GIT",
+  "version": "1.0.0",
+  "description": "-rectification du README.md -fichier html créé -npm init, puis script du package.json -",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/index.scss assets/style.css -w",
+    "rsc": "echo 'Voici le lien vers les fichiers ressource du projet: https://drive.google.com/file/d/1cBYIhTo03rEuB7wy3bviKMNoIwGW4P91/view?usp=sharing'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achicyr/-WORKOUT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achicyr/-WORKOUT/issues"
+  },
+  "homepage": "https://github.com/achicyr/-WORKOUT#readme"
+}
