@@ -1,0 +1,79 @@
+/**/
+
+/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+        /*----------------BLOCK HEADERBAR--------------------*/
+        @mixin headerBar{
+          @extend %rel;
+          display:flex;justify-content:center;padding:1rem;box-shadow:0 0 10px 1px $GRAY;
+          &__logo{/*@extend %w25;*/width:10rem;}
+          &__goBack{
+            transform: rotate(180deg);
+            font-size: 4em;
+            position: absolute;
+            top:0;
+            left: 0;
+            color:black;
+            &::before{content:"\2799";padding:1rem;}
+          }
+        }
+        .headerBar{
+            @include headerBar();
+        }
+/*----------------ENDBLOCK-headerBar
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/
+
+
+
+
+/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+      /*----------------BLOCK JUMBOTRON--------------------*/         
+      @mixin jumbotron(){
+        &__map{@include jumbotron__map()}
+        //QUAND IL Y A PLUSIEURS ELEMENTS BEM SEMBLABLES (ici des slogans) DANS TON BLOCK
+        //IL FAUT LES REGROUPER
+        //ET FAIRE LA HIERARCHIE BEM À L'INTERIEUR DE LA MIXIN DÉDIÉE À L'ÉLEMENT EN QUESTION
+        @include jumbotron__slogans();
+        &__explorerButton{@include jumbotron__explorerButton()}
+      }
+      @mixin jumbotron__map(){
+          background: lighten(black, 90%);/*$GRAY2;*/
+          &::before{
+            content:"\1F341";
+            content:"\56F3";
+            content:"\1F5FA";
+            font-size:2em;color:red;background:white;border-radius:1em;padding:5px;
+          }
+          input{&.--dev{outline: 0;border:none;}
+            background:transparent;font-weight:bold;letter-spacing:3px;border:none;text-align: center;}
+      }
+      @mixin jumbotron__slogans(){
+          &__slogan{padding: 2rem 3rem 0;}
+          &__slogan2{color: $GRAY2;    text-shadow: 0 0 1px darkorchid;}
+      }
+      @mixin jumbotron__explorerButton(){
+          display:block;margin:0 auto;border:none;font-weight:bold;
+          transition: background-color .4s;
+          border-radius:2em;color:white;
+          background-color:$ROSE;
+          // background-image: linear-gradient( red, rgba(255,255,255,0));
+          background: linear-gradient(170deg, rgba(255,121,218,1) 0%, rgba(147,86,220,0.75) 65%, rgba(147,86,220,0.75) 100%);
+          // &:hover{background: $MAUVE;}
+          box-shadow: 1px 2px 5px 1px rgb(0 0 0 / 30%);
+          &:hover{
+          // background-image: linear-gradient(170deg, rgba(147,86,220,1) 0%, rgba(147,86,220,1) 40%, rgba(255,121,218,1) 100%);
+          background-color:$ROSE;
+          }
+          span{display:block;padding:1rem;}
+      }
+      .jumbotron{
+          background-color:lighten(black, 95%);
+          padding:0 0 4rem;
+          >*{text-align: center;}
+          @include jumbotron();
+      }
+      /*----------------ENDBLOCK-jumbotron----------*/
+  /*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/

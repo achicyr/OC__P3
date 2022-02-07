@@ -1,0 +1,388 @@
+// @import "./vendors/bootstrap/scss/bootstrap.scss";
+
+/*
+     DD SOME TRAITMENTS HERE WITH nodejs's package for instance
+     THIS FILE WOULD BE IMPORTED FROM style.scss TO build/style.css
+*/
+
+
+
+// @import './node_modules/bootstrap/scss/bootstrap.scss';
+// C:\Users\achic\myDesktop\RUBY\ocr_p7_bis\node_modules\bootstrap\scss\bootstrap.scss
+@import "./main.scss";
+/***********************************/
+/***********************************/
+/************utils******************/
+//EXTENSIONS
+//FONCTIONS
+//MIXINS
+//VARIABLES
+/***********************************/
+
+/***********************************/
+/***********************************/
+/************base*******************/
+//BASE
+//NORMALIZE
+//TYPOGRAPHY
+/***********************************/
+/***********************************/
+/************component**************/
+body{
+  position:relative;
+  &.--spinner{
+    >.container-spinner{opacity:0;z-index:-1;
+      animation:accueilSpinner 1s ease-in 0s 1;
+    }
+    &::after{content:"";
+      animation: accueilSpinner__after 2s ease-in 0s 1;
+      // @extend %fixF;
+      background:white;
+    }
+  }
+}
+//BUTTONS
+/***********************************/
+/***********************************/
+/************layouts****************/
+//HEADER
+body{
+  >header{
+
+  }
+  >img
+  >button{
+    i{}
+  }
+}
+body{
+  >header.headerBar{
+    // @extend .headerBar
+  }
+}
+
+
+//NAV
+body{
+  >nav{
+  }
+}
+
+
+
+/*
+background-color:deeppink;
+background-image: linear-gradient( white, rgba(255,255,255,0));
+  background:steelblue;
+
+background-color: deeppink;
+background-image: linear-gradient( white, rgba(255,255,255,0));
+  background-color: steelblue;
+  transition: background-color 1s;
+  */
+
+
+
+
+
+//MAIN
+
+body>main{
+  >section.listSteps{
+    @extend %p100;
+    // @extend .listSteps;
+  }
+
+
+  >article.listMenus.--ACCUEIL{
+    // @extend %listMenus--ACCUEIL;
+  }
+}
+
+
+
+
+//FOOTER
+body>footer{
+  >h5{}
+  >ul{
+    li{
+      a{}
+      i{}
+    }
+  }
+}
+/***********************************/
+/***********************************/
+/************pages******************/
+@media only screen and (max-width:$QUERY_MOBILE_MAX){
+  body{
+    >header{}
+    >nav{}
+    >main{
+      >section{}
+      >article{}
+    }
+    >footer{
+      >ul{}
+    }
+  }
+}
+@media only screen and (min-width:$QUERY_TAB_MIN) and (max-width:$QUERY_TAB_MAX){
+  body{
+    >header{}
+    >nav{}
+    >main{
+      >section{}
+      >article{}
+    }
+    >footer{
+      >ul{}
+    }
+  }
+  // body>header{}
+  // body>main{}
+  // body>main>section{}
+  // body>main>article{}
+  // body>footer{}
+  // body>footer>ul{}
+}
+@media only screen and (min-width:$QUERY_DESKTOP_MIN) and (max-width:$QUERY_DESKTOP_MAX){
+  body{
+    >header{}
+    >nav{}
+    >main{
+      >section{}
+      >article{}
+    }
+    >footer{
+      >ul{}
+    }
+  }
+  // body>header{}
+  // body>main{}
+  // body>main>section{}
+  // body>main>article{}
+  // body>footer{}
+  // body>footer>ul{}
+}
+//ACCUEIL
+//MENU-1
+//MENU-2
+//MENU-3
+//MENU-4
+/***********************************/
+/***********************************/
+/************themes*****************/
+
+/***********************************/
+/***********************************/
+/************vendors****************/
+
+/***********************************/
+/***********************************/
+
+
+  
+  
+ /********/
+  
+/*
+@keyframes ok{
+  0%{box-shadow:0 0 0 0;}
+  50%{box-shadow:3rem 1rem 5rem 2rem;background: red;}
+  100%{box-shadow:0 0 1rem 10px;background: green;}
+}
+$list: (12, 12px,2rem, #234);//list
+$pseudo-classes: (
+  active:(
+    border-color: red,
+    font-size:2rem
+  ),
+  hover: (
+    border:none,
+    background: purple
+  ),
+  focus:(
+    animation: ok 2s linear 3 both
+  ),
+  visited:(
+    &:border solid red
+  ),
+  target:(
+    font-size:30px,
+    color:goldenrod
+  )
+);
+  
+$pseudo-elements: (
+  before:(
+    font-size:30px,
+    color:goldenrod
+  ),
+); 
+*/
+
+/********/
+ 
+   
+/*
+.extensionsSass{
+  border:solid;
+  background:red;
+  >p{color:blue;font-weight:bold;}
+  button{
+    color:red;
+    @include pseudo-classes($pseudo-classes);
+  }
+}
+@mixin okok{background: pink !important;}
+%placeholderSass{
+  @include okok;
+  border:solid;
+  background:red;
+  >p{color:blue;font-weight:bold;}
+  button{
+    color:red;
+    @include pseudo-classes($pseudo-classes);
+  }
+}
+ 
+ // body{background:green;}
+ header.ok{
+   @extend .extensionsSass;
+ }
+ 
+ main.ok{
+   @extend %placeholderSass;
+ }
+ input.test,button.test{width:200px;display:block;height:30px;margin-top:1rem;
+   // @include ok($map);
+ }
+*/
+ 
+
+
+/**/
+  
+
+
+/*
+.test- .test {
+  background: rgba(255,255,255,0.1);
+  -webkit-transition: background 0.2s, color 0.2s;
+  -moz-transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s;
+}
+
+.test {
+  display: inline-block;
+  font-size: 0px;
+  cursor: pointer;
+  margin: 15px 30px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+*/
+
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+la note enchantée
+
+
+
+
+*/
+header>a{    
+}
+main{
+
+}
+main>aside{
+
+}
+main>aside>img{
+
+}
+main>aside>img+div{
+
+}
+main>article{/*
+  padding: 2rem 1rem;
+  border-radius: 3rem 3rem 0 0;
+  background: white;
+  position: relative;
+  background: whitesmoke;
+
+  >h2:not(#ok){
+    padding-right: 5%;
+    margin-block-end: 4rem;
+    @extend %titre-menu;    
+    a.coeur{text-decoration: none;
+      @extend %floatR;
+      @include pseudo-classes(btn-coeur(🤍,🧡), "before");
+    }
+  }
+  */
+  section{
+    h3:not(#ok){
+      /*
+      text-transform: uppercase;
+      margin-bottom:3rem;
+      @extend %titre1--s;
+      @extend %rel;
+*/
+    }
+    ul{
+    /*
+      margin-bottom: 5rem;
+      &.--menuPage>li{
+        padding:.5rem 1rem;
+        background: white;
+        @extend %rel;
+
+        h4{
+          @extend %titre2;
+        }
+        p{
+          @extend %titre2--s;
+        }
+        span{
+          @extend %absBR0;
+          margin: 0 2rem 1rem 0px;
+        }
+      }
+    */
+    }
+    button{
+      // @include jumbotron__explorerButton;
+    }
+  }
+}

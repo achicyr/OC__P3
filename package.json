@@ -1,0 +1,20 @@
+{
+  "name": "P3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/index.scss assets/dev.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achicyr/MENTORAT_webdev_P3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achicyr/MENTORAT_webdev_P3/issues"
+  },
+  "homepage": "https://achicyr.github.io/MENTORAT_webdev_P3"
+}

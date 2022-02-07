@@ -1,0 +1,12 @@
+@import "./utils/variables";@import "./utils/functions";@import "./utils/mixins";@import "./utils/extensions";
+@import "./base/normalize";@import "./base/base";@import "./base/typography";
+// @import "./vendors/";
+@import "./components/buttons";@import "./components/spinner";@import "./components/pseudo-element";
+
+
+
+@import "./BEM-dev.scss";
+
+
+@import "./layouts/header";@import "./layouts/nav";@import "./layouts/lists";@import "./layouts/container";@import "./layouts/form";@import "./layouts/main-blocks";@import "./layouts/main";@import "./layouts/ROOT-BLOCKS";
+@import "./pages/work";@import "./pages/about";@import "./pages/project";

@@ -1,0 +1,58 @@
+/**/
+$fontB: bold;
+$titres: 1.7rem;
+
+
+/*
+
+
+---------------------------------
+
+
+*/
+//VARIABLES DE LA CHARTE GRAPHIQUES
+$MAUVE: #9356DC;
+$MAUVE2: #bda5da;
+$ROSE: #FF79DA;
+$TURQUOISE: #99E2D0;
+$BLACK0: ajust-hue(black, 10%);
+$BLACK1: ajust-hue(black, 20%);
+$BLACK2: ajust-hue(black, 30%);
+$BLACK3: ajust-hue(black, 40%);
+$GRAY: #999;
+$GRAY2: silver;
+$GRAY3: whitesmoke;
+//VARIABLES POUR LES MEDIA-QUERY
+$QUERY_MOBILE_MAX: 499px;
+$QUERY_TAB_MIN: 500px;
+$QUERY_TAB_MAX: 999px;
+$QUERY_DESKTOP_MIN: 1000px;
+$QUERY_DESKTOP_MAX: 1499px;
+//VARIABLES POUR LES SELECTEURS BEM
+$jumbotron: (
+    bg: lighten(black, 95%),
+    __map: (bg:lighten(black,90%), ),
+    __slogan1: (padding: 2rem 3rem 0),
+    __slogan2: (padding: 2rem 3rem 0),
+    __explorerButton: (
+        font: white
+    )
+);
+
+
+
+
+
+
+
+
+
+
+//SHADOWS
+$shadow: 0 5px 10px 1px;
+$shadow\+: 0 5px 10px 1px;
+$shadow-: 0 5px 10px 1px;
+//FONT-SIZES
+$emBox: 2rem;
+$emBox\+: 2.5rem;
+$emBox-: 1.5rem;

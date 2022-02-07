@@ -1,0 +1,383 @@
+// @use "sass:math";
+@use "sass:map";
+
+/**/
+/*--------------------------------------------------*/
+/*-----------MIXINS UTILITAIRE----------------*/
+/*--------------------------------------------------*/
+  
+
+
+
+// @mixin pseudo-classes($map){
+//   @each $key, $value in $map{
+//     &:#{$key}{
+//       @each $k,$v in $value{
+//         #{$k}: $v;
+//       }
+//     }
+//   }
+// }
+@mixin pseudo-classes(
+    $map: (hover: (),  active: (),  visited: ()),
+    $into-pseudo-elt: ""
+  ){
+    
+    @if($into-pseudo-elt != ""){
+      @if($into-pseudo-elt == "before" or $into-pseudo-elt == "after"){
+        $into-pseudo-elt: "::" + $into-pseudo-elt;
+      }@else {
+        $into-pseudo-elt: "";
+      }
+    }
+    @each $key, $value in $map{
+      &#{$key}{
+        @each $k,$v in $value{
+          #{$k}: $v;
+        }
+      }
+  }
+}
+// .fontawesomeCoeur{@include pseudo-classes(btn-coeur(🤍,🧡), "before");}
+// %btn-coeur{@include pseudo-classes(btn-coeur(🤍,🧡), "before");}
+ 
+ 
+ 
+  
+@mixin pseudo-elements($map){
+  @each $key, $value in $map{
+    &::#{$key}{
+      @each $k,$v in $value{
+        #{$k}: $v;
+      }
+    }
+  }
+}
+/*--------------------------------------------------*/
+/*--------------------------------------------------*/
+/*--------------------------------------------------*/
+
+
+
+
+
+
+
+          /*----------------ENDBLOCK-jumbotron----------*/
+      /*----------------ENDBLOCK--------------------*/
+  /*----------------ENDBLOCK--------------------*/
+  
+  
+  // $ok: ("titre":"","list":"");
+  // @each $k,$v in $ok{
+  //   div.divvi{#{$k}:#{$v};}
+  // }
+  // @if variable-exists(map-get($elements, "titre")){
+
+  
+  /*--------------------------------------------------*/
+      /*--------------------------------------------------*/
+          /*----------------BLOCK blockList-0--------------------*/
+          @mixin blockList-0($elements: ("titre":"","list":"")){
+            /*
+            LES ELEMENTS PAR DEFAUT SONT:
+            LES DEUX ELEMENTS CI-DESSOUS PEUVENT ÊTRE CUSTOMISÉS POUR: 
+              - titre {font-weight}
+              - list
+              D'AUTRES ELEMENTS PEUVENT
+            */
+            &__titre{
+              // @include blockList-0__titre;
+              @extend %titres;
+              @extend %fontB;
+              &.--menu{
+                @extend %titre-menu;    
+              }
+              &.--underline,&--underline{
+                @extend .before__titles--underline;
+              }
+            } 
+            &__list{
+              @include blockList-0__list();
+  
+              &.--numeros,&--numeros{
+                @include blockList-0__list--numeros();
+              }
+              &.--liAnimation-0,&--liAnimation-0{
+                @include blockList-0__list--liAnimation-0;
+              }
+              &.--liAnimation-1,&--liAnimation-1{
+                @include blockList-0__list--liAnimation-1;
+              }
+              
+            }
+            // OPTIONALS ELEMENTS
+            @if map-has-key($elements, "btn"){
+              &__btn{
+                  @include jumbotron__explorerButton;
+              }
+            }
+          }
+          /******__elements*******/
+          /***********************/
+          // @mixin blockList-0__titre{
+          //       @extend %titres;
+          //       @extend %fontB;
+          // }
+          @mixin blockList-0__list($shadow: $shadow, $sh-color: $GRAY2, $emBox: $emBox, $emBox\+: $emBox\+, $emBox-: $emBox-){
+            // note: "jesuis la";
+              &.DESKTOP{
+                @include desktop-only(){display:flex;justify-content: space-between;}
+                >li{@include desktop-only(){width:33%;}}
+              }
+              &:not(.DESKTOP){>li{@include desktop-only(){text-align:center;}}}
+              >li{
+              @extend %fontB;
+              @extend %rel;
+              box-sizing: border-box;
+              border-radius:$emBox;
+              padding:$emBox;
+              margin-bottom:$emBox-;
+              box-shadow: $shadow $sh-color;
+              background: $GRAY3;
+            }
+          }
+          /******--modifiers*******/
+          /***********************/
+          @mixin blockList-0__list--numeros{
+            >li{
+              @extend %listNumeroted--style;
+              @extend %listNumeroted--counter;
+            }
+            // >li{}
+            // @include .blockList-0__list--numeroted;
+          }
+          @mixin blockList-0__list--liAnimation-0(){
+            >li{
+              overflow:hidden;
+              padding: 1rem 2rem;
+              >h4{@extend %titre2;@extend %mb0;margin-top:0;position:relative;margin-bottom:1rem;}
+              &:hover>div:first-of-type::after{width:200px;}
+              &:hover>div:first-of-type::before{transform:rotate(360deg);right:5%;}
+              >a{
+                &::before{content:"";@extend %absFull;}
+              }
+              >div:first-of-type{
+                position: absolute;
+                display:flex;
+                align-items:flex-end;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                // background: rebeccapurple;
+                border-radius: 30px;
+
+                >h5{width:100%;padding-left:2rem; white-space: nowrap; 
+                  overflow: hidden;
+                  text-overflow: ellipsis; 
+                  margin-bottom:.5rem;
+                }
+                >span{margin: 1em 2em;}
+                &:after{content:"";width:0px;height:100%;transition:width .4s;background:turquoise;
+                  border-radius: 0 30px 30px 0;}
+                &:before{
+                  content:"\2713";
+                  position: absolute;
+                  right: -20%;
+                  top: 20%;
+                  width: 50px;
+                  height: 50px;
+                  text-align: center;;
+                  font-size:2em;
+                  /* align-items: center; */
+                  color:green;
+                  transition: transform .8s, right .4s;
+                  border:solid green;border-radius:2em;
+                  border: solid green;
+                  border-radius: 2em;
+                }
+              }
+            }
+          }
+          @mixin blockList-0__list--liAnimation-1(){
+
+            // <li>
+            //     <h4>Ravioles de foie gras</h4>
+            //     <p>Accompagnés de leur crème à la truffe
+            //         <span>25€</span>
+            //     </p>
+            //     <a href="#"></a>
+            // </li>
+            >li{
+              // display:flex;
+              // flex-wrap: wrap;
+              overflow:hidden;
+              @extend %rel;
+              padding:.5rem 1rem;
+              background: white;
+              transition: width 0.4s;
+              
+      
+              &:hover{
+                  >p{
+                    @include desktop-only(){
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                    }
+                    
+                    @extend %w75;
+                    box-sizing: border-box;
+                  }
+                  >span{@extend %w25;
+                      transition:width .4s;
+                      &:after{transform: rotate(360deg);}
+                  }
+                  >p>span{transform:translateX(-6em);}
+              }
+      
+      
+              h4{
+                  @extend %titre2;
+                  @extend %mb0;
+              }
+              >p,>p>span{display:inline-block;}
+              p{
+                  @extend %titre2--s;
+                  width:95%;
+                  @include mobile-only(){
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+                  white-space: nowrap;
+                  padding: 0 2em 40px 0;
+                  margin-bottom: 0;
+                  span{
+                      @include desktop-only(){
+                        position: relative;
+                        right: 1rem;
+                        top: 2rem;
+                      }
+                      @extend %fontW-b;
+                      padding: 5px;
+                      transition:transform .4s;
+                      transform: translateX(0);
+                      // @extend %absBR0;
+                      // margin: 0 2rem 1rem 0px;
+                      background: $TURQUOISE;
+                  }
+              }
+              >span{
+                  background-color: $TURQUOISE;
+                  @extend %rel;
+                  right:-1rem;
+                  transition: width .4s;
+                  @extend %absTR0;
+                  @extend %h100;
+                  // @extend %w25;
+                  @extend %w0;
+                  // &:hover{}
+                  border-radius: 0 2em 2em 0;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  &::after{    content: "\2713";
+                      transition: transform 1s;
+                      transform:rotate(0deg);
+                      font-weight: 900;
+                      color: white;
+                      font-size: xx-large;
+                      border-radius: 3em;
+                      border: solid white;
+                      width: 50px;
+                      height: 50px;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                  }
+              }
+              >a{
+                &::before{content:"";@extend %absFull;}
+              }
+            }
+          }
+          /***********************/
+  
+  
+  
+          /*----------------ENDBLOCK-blockList-0----------*/
+        /*----------------ENDBLOCK--------------------*/
+    /*----------------ENDBLOCK--------------------*/
+    
+    
+    
+    
+    // $listMenus__card--figcaption: (
+    //   i: (
+    //     before:(
+    //         content:"\1F90D",
+    //         border-radius:2rem,
+    //         transition: "border .5s, background-color 1s"
+    //     ),
+    //     active\:\:before: (content:"\1F9E1"),
+    //     hover\:\:before: (
+    //         border:solid orange,
+    //         background:brown
+    //     ),
+    //     target:(
+    //       border:solid pink
+    //     )
+    //   )
+    // );
+            @mixin txtButton($content: "Nouveau"){
+              &::before{
+                content:$content;
+                cursor:pointer;
+                color:green;
+                background:lighten(green, 30%);
+                position:absolute;
+                right:1rem;
+                top:1rem;
+                padding:.5rem;
+              }
+            }
+            /***********************/
+            
+            
+            
+            /*----------------ENDBLOCK-listMenus----------*/
+        /*----------------ENDBLOCK--------------------*/
+    /*----------------ENDBLOCK--------------------*/
+            
+            
+
+
+
+    $breakpoints: (
+      mobile: 599px,
+      tablette: 999px,
+      desktop: 1199px
+    );
+    @mixin mobile-only($max: map-get($breakpoints, mobile)) {
+      @media screen and (max-width: $max){
+        @content;
+      }
+    }
+    @mixin tablette-only($min: map-get($breakpoints, mobile) + 1, $max: map-get($max, tablette)) {
+      @media screen and (min-width: $min) and (max-width: $max){
+        @content;
+      }
+    }
+    
+    @mixin desktop-only($min: map-get($breakpoints, tablette) + 1, $max: map-get($breakpoints, desktop)) {
+      @media screen and (min-width: $min )/* and (max-width: $max)*/{
+        @content;
+      }
+    }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include mobile-only{
+        grid-template-columns: 1fr;
+      }
+    }

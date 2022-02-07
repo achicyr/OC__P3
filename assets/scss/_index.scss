@@ -1,0 +1,65 @@
+@import "./main.scss";
+
+
+
+
+// BEM: Block-Element-Modifier 
+// système 7-1: Type de codebase optimal pour le codage en sass (scss)
+
+@keyframes menuPageAnimation{
+    0%{height:0px;opacity:0;}
+    90%{height: 500px;opacity:1;}
+    100%{height:auto;opacity:1;overflow:visible;}
+}
+
+
+
+main>article{
+    padding: 2rem 1rem;
+    border-radius: 3rem 3rem 0 0;
+    background: white;
+    position: relative;
+    background: whitesmoke;
+
+    >h2{
+      padding-right: 5%;
+      margin-block-end: 4rem;
+      @extend %titre-menu;    
+      a.coeur{text-decoration: none;
+          @extend %floatR;
+          @include pseudo-classes(btn-coeur(🤍,🧡), "before");
+      }
+    }
+
+    >section{
+      >h3:not(#ok){
+        text-transform: uppercase;
+        margin-bottom:3rem;
+        @extend %titre1--s;
+        @extend %rel;
+
+        @extend %titres;
+        @extend %fontB;
+        &.--menu{
+          @extend %titre-menu;    
+        }
+        &.--underline/*,&--underline*/{
+          @extend .before__titles--underline;
+        }
+      }
+      >ul{
+        height:0;
+        animation: menuPageAnimation 1s ease-in 1s 1 forwards;
+        overflow:hidden;
+        margin-bottom: 5rem;
+
+
+        @include blockList-0__list();
+        @include blockList-0__list--liAnimation-0;
+        @include blockList-0__list--liAnimation-1;
+      }
+      >button{
+        @include jumbotron__explorerButton;
+      }
+    }
+}

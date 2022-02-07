@@ -1,0 +1,65 @@
+
+/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+        /*----------------BLOCK MAINHEADANIMATION--------------------*/
+        .mainHeadAnimation{
+            height:500px;margin-bottom:-3rem;
+            &__imgBackground{width:100%;height:100%;object-fit:cover;}
+            &__animation{}
+        }
+/*----------------ENDBLOCK-mainHeadAnimation
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/
+
+
+
+
+/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+        /*----------------BLOCK LACARTE--------------------*/
+        @mixin laCarte(){
+            padding: 2rem 1rem;
+            border-radius: 3rem 3rem 0 0;
+            background: white;
+            position: relative;
+            background: whitesmoke;
+
+            &__titre{
+                padding-right: 5%;
+                margin-block-end: 4rem;
+                @extend %titre-menu;    
+                a.coeur{text-decoration: none;
+                    @extend %floatR;
+                    @include pseudo-classes(btn-coeur(🤍,🧡), "before");
+                }
+            }
+
+            &__menus{
+                //laCarte__menus: est lié à la classe "menuList" qui elle-même inclu la mixin "blockList-0";
+            }
+        }
+        .laCarte{
+            @include laCarte();
+            /*
+            >h2:not(#ok){
+            }
+            section{
+                h3:not(#ok){
+                }
+                ul{
+                    h4{
+                    }
+                    p{
+                    }
+                    span{
+                    }
+                }
+            }
+            */
+            button{
+                // @include jumbotron__explorerButton;
+            }
+        }
+/*----------------ENDBLOCK-laCarte
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/

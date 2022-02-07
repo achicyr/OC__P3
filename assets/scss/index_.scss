@@ -1,0 +1,200 @@
+@import "./main.scss";
+
+
+
+// BEM: Block-Element-Modifier 
+
+// système 7-1: Type de codebase optimal pour le codage en sass (scss)
+
+
+
+@keyframes menuPageAnimation{
+    0%{height:0px;opacity:0;}
+    90%{height: 500px;opacity:1;}
+    100%{height:auto;opacity:1;overflow:visible;}
+}
+
+
+
+%list{
+	&__titre{
+		text-transform: uppercase;
+		margin-bottom:3rem;
+		@extend %titre1--s;
+		@extend %rel;
+	
+		@extend %titres;
+		@extend %fontB;
+
+		
+		
+		&.--menu{
+		@extend %titre-menu;    
+		}
+		&.--underline/*,&--underline*/{
+		@extend .before__titles--underline;
+		}
+	}
+	&__list{
+		height:0;
+		animation: menuPageAnimation 1s ease-in 1s 1 forwards;
+		overflow:hidden;
+		margin-bottom: 5rem;
+
+
+		@include blockList-0__list();
+		@include blockList-0__list--liAnimation-0;
+		@include blockList-0__list--liAnimation-1;
+	}
+	&__button{
+		@include jumbotron__explorerButton;
+	}
+}
+@mixin list($list: list()){
+	@extend %list;
+	@extend %_list;
+	&__titre{@extend %list__titre;}
+	&__list{@extend %list__list;}
+	&__button{@extend %list__button;}
+}
+.list{@include list;}
+$list: list();
+@function list(){
+	@return ();
+}
+
+%_list{
+	.__titre{
+		text-transform: uppercase;
+		margin-bottom:3rem;
+		@extend %titre1--s;
+		@extend %rel;
+	
+		@extend %titres;
+		@extend %fontB;
+
+		&.--menu{
+			@extend %titre-menu;    
+		}
+		&.--underline,&--underline{
+			@extend .before__titles--underline;
+		}
+	}
+	.__list{
+		height:0;
+		animation: menuPageAnimation 1s ease-in 1s 1 forwards;
+		overflow:hidden;
+		margin-bottom: 5rem;
+		
+		@include blockList-0__list();
+		@include blockList-0__list--liAnimation-0;
+		@include blockList-0__list--liAnimation-1;
+	}
+	.__button{
+		@include jumbotron__explorerButton;
+	}
+}
+@mixin _list($list: list()){
+	@extend %_list;
+	.__titre{}
+	.__list{}
+	.__button{}
+}
+._list{@include _list;}
+
+
+
+
+
+%exemple{
+    padding: 2rem 1rem;
+    border-radius: 3rem 3rem 0 0;
+    background: white;
+    position: relative;
+    background: whitesmoke;
+	&__titre{
+		padding-right: 5%;
+		margin-block-end: 4rem;
+		@extend %titre-menu;    
+		a.coeur{text-decoration: none;
+			@extend %floatR;
+			@include pseudo-classes(btn-coeur(🤍,🧡), "before");
+		}
+	}
+	&__section{
+		// NON EXTERNALISÉ: APPEL À UN COMPOSANT BEM NON-EXTERNALISÉ:
+				//!!// IL N'Y A PAS D'APPEL À FAIRE
+				//!!// C'EST directement dans le HTML qu'il 
+				//!!// faut étendre la classe BEM désiré 
+				//!!// (ici .list) 
+				
+		// EXTERNALISÉ: APPEL À UN COMPOSANT BEM DÉJÀ EXTERNALISÉ
+		// .guess{@include list;}		//VERSION BEM OFFICIEL: avec une mixin (de préférence, fonctionne en mode block et aussi sous-block BEM)
+		&.guess{@include _list;}	//VERSION BEM MODIFIÉ EN MODE SOUS-BLOCK BEM, MAIS SOUS FORME DE MIXIN
+		// &.guess{@extend ._list;}	//VERSION BEM MODIFIÉ EN MODE SOUS-BLOCK BEM, MAIS SOUS FORME DE CLASSE
+
+		//!!// .guess{@extend .list;}		//VERSION BEM OFFICIEL: avec une .extension (non-recommandé pour les sous-block BEM!)
+		/*
+			LE CAS CI-DESSUS NE PEUT PAS FONCTIONNER
+			CAR LES .extensions NE SUPPORTENT PAS L'HÉRITAGE
+			DE L'ESPERLUETTE AU DELÀ DE LEUR CLASSE (ICI '.list').
+			- ainsi seul les classes .list__etc pourront être créées,
+			pas les classe .section__etc
+			- concernant .guess et consor, 
+			il n'y aura qu'une seule classe de créée, 
+			la class .guess, (héritant donc des propriété de la class .list)
+		*/
+	}
+}
+@mixin exemple($exemple: exemple()){
+	@debug $exemple;
+	@extend %exemple;
+    &__titre{@extend %exemple__titre;}
+    &__section{@extend %exemple__section;}
+
+}
+.exemple{@include exemple;}
+$exemple: (void);
+@function exemple(){
+	// ..do stuff 
+	//...and transform $exemple beofre sending it back
+	@return $exemple;
+}
+
+%_exemple{
+    padding: 2rem 1rem;
+    border-radius: 3rem 3rem 0 0;
+    background: white;
+    position: relative;
+    background: whitesmoke;
+	.__titre{
+		padding-right: 5%;
+		margin-block-end: 4rem;
+		@extend %titre-menu;    
+		a.coeur{text-decoration: none;
+			@extend %floatR;
+			@include pseudo-classes(btn-coeur(🤍,🧡), "before");
+		}
+	}
+	.__section{
+
+		// CHOISIR PARMIS UN DES 3 APPELS CI-DESSOUS:
+		// puis, si nécessaire, reporter le choix 
+		// sur le nom des classes dans le code html
+		// .guess{@include list;}		//VERSION BEM OFFICIEL: avec une mixin (de préférence, fonctionne en mode block et aussi sous-block BEM)
+		// &.guess{@include _list;}	//VERSION BEM MODIFIÉ EN MODE SOUS-BLOCK BEM, MAIS SOUS FORME DE MIXIN
+		// &.guess{@extend ._list;}	//VERSION BEM MODIFIÉ EN MODE SOUS-BLOCK BEM, MAIS SOUS FORME DE CLASSE
+	}
+}
+@mixin _exemple($exemple: exemple()){
+	@extend %_exemple;
+	.__titre{}
+	.__section{}
+}
+._exemple{@include _exemple;}
+
+
+.test{
+	// @debug $exemple;
+	@include exemple;
+}

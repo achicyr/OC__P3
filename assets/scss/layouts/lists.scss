@@ -1,0 +1,145 @@
+
+.listSteps{
+    @include blockList-0();
+    @extend %pad01;
+}
+/*----------------ENDBLOCK-listSteps
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/
+
+/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+        /*----------------BLOCK LISTMENUS--------------------*/
+        @mixin listMenus(){
+            @include desktop-only(){
+                padding-top:10rem;
+                display:flex;
+                align-content: space-between;
+                flex-flow: wrap;
+            }
+            @extend %bg-gray3;
+            @extend %pad32;
+            @extend %rel;
+            &__titre{@include desktop-only(){position:absolute;top:5rem;};@extend %titres;}
+            &__card{@include listMenus__card(/*$listMenus__card--figcaption*/);
+                &.--new,&--new{@include listMenus__card--new;}
+            }
+        }
+        /******__elements*******/
+        /***********************/
+        @mixin listMenus__card($param: ()){
+            @include desktop-only(){
+                width: calc(50% - 2rem/2);
+                &:nth-child(2n){
+                    margin-right: 2rem;
+                }
+            }
+            /* height:450px;*/
+            @extend %rel;
+            margin:0 0 2rem;
+            border-radius:2em 2rem 0 0;
+            box-shadow:0 0 10px 1px $GRAY;
+            >img{width:100%;height:325px;
+                border-radius:2em 2rem 0 0;
+                object-fit: cover;
+            }
+            >figcaption{
+                @extend %container_linked_with_anchor;
+                @extend %rel;
+                @extend %block;
+                @extend %fs150;
+                @extend %fwbold;
+                @extend %bb;
+                padding:2rem 20px;
+                height:125px;
+                >a{text-decoration:none;display:block;padding:1rem 0;color:black;font-weight: 100;
+                }
+                >i{position:absolute;right:1rem;top:0;cursor:pointer;
+                @include pseudo-classes(btn-coeur(🤍,🧡), "before");
+                    // @each $k,$v in $param {
+                    //     &:#{$k}{content: $v}
+                    // }
+                // &::before{content:"\1F90D";border-radius:2rem;transition: border .5s, background 1s;}
+                // &:hover::before{content:"\1F9E1";}
+                // &:active::before{border:solid orange;background:brown;}
+                }
+            }
+        }
+        /******--modifiers*******/
+        /***********************/
+        @mixin listMenus__card--new{
+            @include txtButton('Nouveau');
+        }
+        .listMenus{
+            // box-shadow: 1px 2px 5px 1px rgb(0 0 0 / 30%);
+            @include listMenus();
+        }
+/*
+$listMenus__card--figcaption: ();
+// $listMenus__card--figcaption: (
+//   i: (
+//     before:(
+//         content:"\1F90D",
+//         border-radius:2rem,
+//         transition: "border .5s, background-color 1s"
+//     ),
+//     active\:\:before: (content:"\1F9E1"),
+//     hover\:\:before: (
+//         border:solid orange,
+//         background:brown
+//     ),
+//     target:(
+//       border:solid pink
+//     )
+//   )
+// );      
+%listMenus--ACCUEIL{
+    .listMenus--ACCUEIL{
+        // box-shadow: 1px 2px 5px 1px rgb(0 0 0 / 30%);
+        @extend %bg-gray3;
+        @extend %pad32;
+        @extend %rel;
+        &__titre{@extend %titres;}
+        &__card{background:gold;@include listMenus__card($listMenus__card--figcaption);
+            &.--new{@include listMenus__card--new;}
+        }
+    }
+}
+*/
+  /*----------------ENDBLOCK-listMenus----------*/
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/
+
+
+
+/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+        /*----------------BLOCK MENULIST--------------------*/
+        .menuList{
+            @include blockList-0(("btn":""));
+
+            &__titre{@extend %menuList__titre;}
+            &__list{@extend %menuList__list;}
+        }
+        %menuList__titre{
+            text-transform: uppercase;
+            margin-bottom:3rem;
+            @extend %titre1--s;
+            @extend %rel;
+        }
+        @keyframes menuPageAnimation{
+            0%{height:0px;opacity:0;}
+            90%{height: 500px;opacity:1;}
+            100%{height:auto;opacity:1;overflow:visible;}
+        }
+        %menuList__list{
+            height:0;
+            animation: menuPageAnimation 1s ease-in 1s 1 forwards;
+            overflow:hidden;
+            margin-bottom: 5rem;
+            
+        }
+
+/*----------------ENDBLOCK-menuList
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/

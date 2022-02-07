@@ -1,0 +1,25 @@
+//before__titles//
+
+
+
+@mixin before(){
+    &__titles{
+        &--underline::before{
+            content:"";
+            @extend %abs;
+            bottom:-1rem;
+            left:0;
+            color:green;
+            width:5%;
+            border:solid;
+        }
+    }
+}
+.before{
+    @include before();
+}
+
+
+
+////
+////

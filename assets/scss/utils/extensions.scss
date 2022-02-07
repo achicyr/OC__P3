@@ -1,0 +1,174 @@
+/*LES DEFINITIONS DE LA CHARTE*/
+%fontB{font-weight:$fontB;}
+%titres{font-size:$titres;}
+%txt-sh-light{text-shadow: -0.1px -1px 1px black;}
+%txt-gray{color: silver;}
+%fontS-xxL{font-size: xx-large;}
+%fontS-xL{font-size: x-large;}
+%fontS-L,%fontS-l{font-size: large;}
+%fontS-M,%fontS-m{font-size: medium;}
+%fontW-b{font-weight:bold;}
+%fontW-m{font-weight:medium;}
+%fontW-s,%fontW-small,%fontW-l,%fontW-light{font-weight:100;}
+//
+%titre1{@extend %txt-sh-light;
+    @extend %fontS-xxL;
+    @extend %fontW-b;
+}
+%titre1--s{@extend %txt-sh-light;
+    @extend %fontS-xL;
+    @extend %fontW-s;
+    @extend %txt-gray;
+}
+%titre2{@extend %txt-sh-light;
+    @extend %fontS-xL;
+    @extend %fontW-b;
+}
+%titre2--s{@extend %fontS-L;@extend %fontW-l;}
+%titre3{@extend %txt-sh-light;
+    @extend %fontS-L;
+    @extend %fontW-s;
+}
+%titre3--s{@extend %fontS-M;}
+%titre-menu{
+    font-family:Shrikhand;
+    @extend %fontS-xxL;
+}
+
+
+/*
+
+
+---------------------------------
+
+
+*/
+/*LES DÉFINITIONS DE MODULABLE */
+%container_linked_with_anchor{
+    /*note: "NE S'APPLIQUE QU'A L'ÉLEMENT SENSÉ ÊTRE CLIQUABLE"*/
+    position:relative;
+    a:first-of-type:before{
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0);
+    }
+}
+%listNumeroted--counter{
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}):before{content:"#{$i}"}
+    }
+}
+%listNumeroted--style{
+    // counter-reset: listCounter;
+        /*
+        counter-increment: listCounter;
+        */
+        &::before{
+            // content: counter(listCounter);
+            background: $MAUVE;color:white;
+            position: absolute;
+            left: -1rem;
+            border-radius: 1em;
+            border: 1px solid;
+            padding: 5px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            top: calc( 50% - 15px );
+        }
+        i{margin-right:1rem;}
+        &:hover{background: $MAUVE2;
+        i{color:$MAUVE;}
+        }
+}
+
+
+
+
+
+
+/*
+
+
+---------------------------------
+
+!!!!!!!!!!!!
+METTRE "!optional" LÀ OÙ IL FAUT...                             (À LA FIN DE TOUTES LES PLACEHOLDERS SUIVANTS)
+!!!!!!!!!!!!!!!
+*/
+%w-h-full{width:100%;height:100%;}
+%w-h-halfH{width:100%;height:50%;}
+%w-h-halfW{width:50%;height:100%;}
+%w0{width:0%;}%w25{width:25%;}%w50{width:50%;}%w75{width:75%;}%w100{width:100%;}
+%h0{height:0%;}%h25{height:25%;}%h50{height:50%;}%h75{height:75%;}%h100{height:100%;}
+%w-h-full{width:100%;height:100%;}
+%w-h-full{width:100%;height:100%;}
+//
+%p0{padding:0;}%m0{padding:0;}
+%pt0{padding-top: 0;}%pr0{padding-right: 0;}%pb0{padding-bottom: 0;}%pl0{padding-left: 0;}
+%mt0{margin-top: 0;}%mr0{margin-right: 0;}%mb0{margin-bottom: 0;}%ml0{margin-left: 0;}
+%p050{padding:.5rem;}%m050{margin:.5rem;}
+%p075{padding:.75em;}%m075{margin:.75em;}
+%p100{padding:1rem;}%m100{margin:1rem;}
+%p125{padding:1.25rem;}%m125{margin:1.25rem;}
+%p150{padding:1.5rem;}%m150{margin:1.5rem;}
+%p175{padding:1.75rem;}%m175{margin:1.75rem;}
+%p200{padding:2rem;}%m200{margin:2rem;}
+%pad32{padding:3rem 2rem;}
+%pad23{padding:2rem 3rem;}
+%pad31{padding:3rem 1rem;}
+%pad13{padding:1rem 3rem;}
+%pad12{padding:1rem 2rem;}
+%pad21{padding:2rem 1rem;}
+%pad01{padding:0rem 1rem;}
+%pad10{padding:1rem 0rem;}
+%pad02{padding:0rem 2rem;}
+%pad20{padding:2rem 0rem;}
+%bg-gray3{background: $GRAY3;};
+//
+
+%fs050{font-size:.5rem;}
+%fs075{font-size:.75rem;}
+%fs100{font-size:1rem;}
+%fs125{font-size:1.25rem;}
+%fs150{font-size:1.5rem;}
+%fs175{font-size:1.75rem;}
+%fs200{font-size:2rem;}
+%fw100,%fwthin{font-weight:100;}
+%fw300{font-weight:300;}
+%fw500,%fwmedium{font-weight:500;}
+%fw700{font-weight:700;}
+%fw900,%fwbold{font-weight:900;}
+//
+%block{display:block;}
+%inline{display:inline;}
+%iblock{display:inline-block;}
+//
+
+//
+%floatR{float:right;}
+%floatL{float:left;}
+%rel{position:relative;}
+%abs{position:absolute;}
+%pos0{top:0;right:0;bottom:0;left:0;}
+%absTL0{@extend %abs;top:0;left:0;}
+%absTR0{@extend %abs;top:0;right:0;}
+%absBR0{@extend %abs;bottom:0;right:0;}
+%absBL0{@extend %abs;bottom:0;left:0;}
+%absFull,%absF{@extend %abs;@extend %pos0;}
+%absF_,%absHalfFull{@extend %absTop;@extend %w-h-full;}
+%absTop,%absT,%abst{@extend %abs;@extend %absTL0;@extend %w-h-halfH;}
+%absRight,%absR,%absr{@extend %abs;@extend %absTR0;@extend %w-h-halfW;}
+%absBottom,%absB,%absb{@extend %abs;@extend %absBL0;@extend %w-h-halfH;}
+%absLeft,%absL,%absl{@extend %abs;@extend %absTL0;@extend %w-h-halfW;}
+%fix{position:fixed;} 
+%fixF{@extend %fix;@extend %pos0;}
+//
+%z{z-index:1}
+//
+%bb{box-sizing: border-box;}

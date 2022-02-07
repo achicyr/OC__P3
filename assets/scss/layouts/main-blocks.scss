@@ -1,0 +1,27 @@
+//block FOOTER
+@mixin footer__liens(){
+    @extend %p0;
+    >li{
+      margin-bottom:.5rem;
+      a{text-decoration:none;color:white;}
+      i{@extend %fs150;
+        background: whitesmoke;padding:5px;border:solid silver;border-radius:100px;}
+    }
+  }
+  @mixin footer__logo(){
+    @extend %fs150;
+    margin:0;
+  }
+  @mixin footer(){
+    &__logo{@include footer__logo();}
+    &__liens{@include footer__liens();}
+  }
+  .footer{
+    padding:2.5rem  2rem;
+    background: black;color:white;
+    @include footer();
+  }
+
+  /*----------------ENDBLOCK-footer----------*/
+/*----------------ENDBLOCK--------------------*/
+/*----------------ENDBLOCK--------------------*/
