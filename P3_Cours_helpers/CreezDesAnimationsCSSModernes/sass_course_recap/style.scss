@@ -1,0 +1,93 @@
+//CHAPITRE5
+$cd-btn-start: rgba(1, 28, 55, 0);
+$cd-btn-end: rgba(1, 28, 55, 1);
+
+
+
+
+
+
+
+
+//CHAPITRE3
+$cd-txt: #6300a0;
+.form {
+    &__group {
+        & input {
+        border: 2px solid $cd-box;
+        border-radius: 100rem;
+        color: $cd-txt;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5rem;
+        outline: none;
+        padding: .5rem 1.5rem;
+        width: 100%;
+        &:focus {
+            border: 2px solid $cd-txt;
+            }
+        }
+        
+        
+        
+      /*
+        &:invalid {
+          background: $cd-danger;
+          border: 2px solid $cd-danger;
+          color: $cd-txt--invalid;
+        }
+      */
+      /*
+      &:not(:focus):invalid {
+        background: $cd-danger;
+        border: 2px solid $cd-danger;
+      }
+      */
+      
+      
+      
+      
+      // transition: background-color 500ms;
+    }
+}
+
+
+
+
+//CHAPITRE2
+$cd-btn: #011c37;
+$cd-txt: #15DEA5;
+.btn {
+    background: $cd-btn;
+    color: $cd-txt;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+  
+  
+  
+  /*
+    border-radius: 10rem;
+    transform: scale(1);
+  */
+  
+  
+  
+  /*
+    &:hover {
+        transform: scale(1.15);
+    }
+  */
+  
+  
+  
+  // transition-property: transform;
+  
+  
+  
+  // transition-duration: 1000ms;
+  //// transition-duration: 40ms;
+  
+  
+  
+  // transition: transform 400ms;
+}

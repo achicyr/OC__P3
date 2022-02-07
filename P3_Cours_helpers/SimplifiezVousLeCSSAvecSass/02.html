@@ -1,0 +1,198 @@
+<link rel="stylesheet" href="style.css">
+<body>
+    <ul>
+        <li><a href="https://next.tech/projects/dae1c58f-0423-41ba-9c4a-6f3f56eb39d0?access_token=68083A6BF39AA4FC1649AFDBF904B3BA&internal=false">Lien vers l'exercice 1</a></li>
+        <li><a href="https://github.com/tdimnet/Simplifiez-vous-le-CSS-avec-Sass/tree/partie-1/chapitre-2%2Fexercice-1">correction git exercice 1</a></li>
+        <hr class="safe">
+        <li><a href="https://next.tech/projects/52785849-39be-4def-86bd-08c013e0071a?access_token=C04E955ACE1B76AFA0CC12ED3E1E2C83&internal=false">Lien vers l'exercice 2</a></li>
+        <li><a href="https://github.com/tdimnet/Simplifiez-vous-le-CSS-avec-Sass/tree/partie-1/chapitre-2%2Fexercice-2">correction git exercice 2</a></li>
+    </ul>
+    <hr>  
+    <h1>Exercice de refactoring CSS <a target="_blank" href="https://next.tech/projects/dae1c58f-0423-41ba-9c4a-6f3f56eb39d0?access_token=68083A6BF39AA4FC1649AFDBF904B3BA&internal=false">lien</a></h1>
+    <textarea name="" id="" cols="200" rows="10">
+        Regardons la classe heading et séparons ses concerns. 
+        Elle possède toutes les propriétés qui permettent de créer le style de nos titres, ainsi qu'une propriété qui convertit le texte en majuscules. 
+        Le problème est que nous ne voulons pas toujours mettre nos titres en majuscules.
+
+        Au lieu de créer un titre en minuscules complètement nouveau, déplaçons la propriété text-transform de heading dans une classe appelée .heading-caps. Ensuite, nous pouvons l'ajouter aux titres que nous souhaitons voir apparaître en majuscules.
+
+        Le fichier css se trouve dans /public/css/style.css.
+    </textarea>
+    <textarea name="" id="" cols="200" rows="40">
+
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,900i');
+        html, body {
+        font-family: 'Montserrat', sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        .container {
+        height: 100%;
+        align-items: center;
+        }
+
+        /* ============================================== */
+        /* separate the concerns of the heading selector  */
+        /* by moving the text-transform property          */
+        /* into its own class called ".heading-caps"      */
+        /* then add ".heading-caps" to the second button, */
+        /* ============================================== */
+
+        .heading {
+        width: 100%;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 1.5rem;
+        background: #15DEA5;
+        color: #FFF;
+        font-size: 2rem;
+        text-transform: uppercase;/*CRÉER CLASS heading-caps, ET Y TRANSFÉRER CETTE REGLE CSS text-tranform*/
+        }
+    </textarea>
+    <ol><h2>OBJECTIFS</h2>
+        <li>Créez une nouvelle classe appelée .heading-caps</li>
+        <li>Déplacez la propriété text-transform dans .heading-caps</li>
+        <li>Dans le HTML, ajoutez "heading-caps" à la classe du second titre.</li>
+    </ol>
+    
+
+    <hr class="safe">
+
+
+    <div class="container">
+        <div class="heading">Aidez-moi à arrêter de crier !</div>
+        <div class="heading">Je veux rester en majuscules !</div>
+    </div>
+    
+
+
+
+    <hr>
+
+
+
+
+
+    <h1>La Spécificité des règles CSS <a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6595695-structurez-votre-css#/id/r-6596764">lien vers la partie du cours</a></h1>
+    <p>Un navigateur distingue quatre catégories de règles CSS.</p>
+    <ol>
+        <li><b><u>Le style inline, défini directement dans le HTML:</u></b> <code>&lt;div style="background-color:#15DEA5;"&gt;Click Here!&lt;/div&gt;</code></li>
+        <li> <b><u>Les id:</u></b> <code>&lt;style&gt; #submit-button { background-color: #15DEA5; } &lt;/style&gt;
+            &lt;div id="submit-button"&gt;Click Here!&lt;/div&gt;</code>
+        </li>
+        <li><b><u>Les classes, pseudoclasses et attributs:</u></b>
+            <code>&lt;style&gt; .button { background-color: #DB464B; } &lt;/style&gt;
+                &lt;div class="button"&gt;Click Here!&lt;/div&gt;</code>
+        </li>
+        <li><b><u>Les éléments et pseudoéléments:</u></b> <code>&lt;style&gt; div { background-color: #DB464B; } &lt;/style&gt;
+            &lt;div&gt;Click Here!&lt;/div&gt;</code>
+        </li>
+    </ol>
+
+
+
+
+
+    <hr>  
+
+
+
+
+
+    <h1>Exercice sur les poids des spécifités des sélecteurs CSS <a target="_blank" href="https://next.tech/projects/52785849-39be-4def-86bd-08c013e0071a?access_token=C04E955ACE1B76AFA0CC12ED3E1E2C83&internal=false">lien</a></h1>
+    <textarea name="" id="" cols="200" rows="10">
+        Nous avons une classe .btn pour le style de nos boutons, qui leur ajoute un fond vert-menthe. 
+        Mais nous avons décidé de créer une nouvelle classe qui rend leur fond rose.La valeur hex est #EA526F. 
+        Mais... cela ne fonctionne pas. Nous l'avons ajoutée à notre second bouton mais il est toujours vert-menthe.
+        
+        Cela signifie que la classe .btn doit avoir une spécificité plus haute que.btn-pink. Nous avons donc besoin de refactoriser notre CSS pour outrepasser la couleur de fond .btn quand nous appliquons.btn-pink.
+
+        Le fichier .css se trouve dans /public/css/style.css.
+    </textarea>
+    <textarea name="" id="" cols="200" rows="40">
+        @import url("https://fonts.googleapis.com/css?family=Montserrat:100,900i");
+        html, body {
+          font-family: "Montserrat", sans-serif;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        .container {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        }
+        
+        div.btn {/*SUPPRIMER LE DIV*/
+          cursor: pointer;
+          padding: 1.5rem 2.5rem;
+          margin-bottom: 1.5rem;
+          background: #15DEA5;
+          color: #FFF;
+          font-size: 2rem;
+        }
+        
+        .btn-pink {
+          background: #EA526F;
+        }
+        
+    </textarea>
+    <ol><h2>OBJECTIFS</h2>
+        <li>Analysez le niveau de spécificité des boutons dans le fichier CSS.</li>
+        <li>Refactorisez le CSS pour que .btn-pink passe au-dessus du fond .btn et passe le second bouton en rose.<br/>
+            Cela peut se faire en augmentant la spécificité de .btn-pink, mais pour maintenir les différentes spécificités au minimum dans notre codebase, il vaut mieux réduire la spécificité de ".btn"
+        </li>
+    </ol>
+    
+    
+    
+    
+    <hr class="safe">
+
+
+
+
+
+    <div class="container">
+        <div class="btn">Je suis un bouton vert menthe !</div>
+        <div class="btn btn-pink">Je veux devenir rose !</div>
+      </div>
+    
+
+
+
+    <hr>
+
+
+
+
+    <h2>RÉSUMÉ</h2>
+    <pre>
+        Lorsque vous codez, pensez à adopter le DRY : ne vous répétez pas !
+
+        Lorsque vous créez des sélecteurs, faites attention à ne pas y entasser trop de règles. Séparer les sélecteurs par leur fonction vous aidera à garder votre code compréhensible et maintenable.
+
+        La spécificité permet de mesurer le poids d’un sélecteur au sein du HTML parmi les autres.
+
+        Il existe quatre niveaux de spécificité : 
+
+            les feuilles de style locales (inline styles) ;
+
+            les id ;
+
+            les classes, pseudoclasses et attributs ;
+
+            les éléments et pseudoéléments.
+
+        Votre navigateur applique les éléments les plus spécifiques en premier.
+
+        Le CSS n’a pas de structure rigide, ce qui complique la tâche pour avoir une codebase propre et maintenable.
+
+        En créant et en appliquant votre propre structure, vous pouvez mettre de l’ordre dans un CSS brouillon...
+    </pre>
+</body>

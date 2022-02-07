@@ -1,0 +1,351 @@
+<link rel="stylesheet" href="style.css">
+<body>
+    <ul>
+    </ul>
+    <h1>Nota bene</h1>
+    <ul>
+        <li><u>N’abusez pas du nesting</u>:   Mais souvenez-vous, quand vous imbriquez des sélecteurs, vous augmentez la spécificité des sélecteurs compilés. </li>
+    </ul>
+
+
+
+
+
+    <hr>  
+
+
+
+
+    <h1>les combinateurs</h1>
+    <a href="https://www.w3schools.com/css/css_combinators.asp">w3c- les combinateurs</a>
+    <ul>
+        <li>descendant: <br>
+            <pre>
+                .parent .descendant {
+                  color: #fff;
+                }
+            </pre>
+        <li>enfant: <br>
+            <pre>
+                .parent > .child {
+                  color: #D6FFF5;
+                }
+            </pre>
+        </li>
+        <li>adjacent(voisin): <br>
+            <pre>
+            .parent + .adjacent {
+              color: #001534;
+            }
+            </pre>
+        </li>
+        <li>frère(cousin): <br>
+            <pre>
+                .parent ~ .frere {
+                  color: #001534;
+                }
+            </pre>
+        </li>
+    </ul>
+    <textarea name="" id="" cols="30" rows="10">
+        .parent {
+          background-color: #15DEA5;
+          .descendant {
+              color: #fff;
+          }
+          >.child {
+              color: #D6FFF5;
+          }
+          +.adjacent {
+              color: #001534;
+          }
+        }
+    </textarea>
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+    <h1>lES COMBINATEURS PAR L'ACTION : <a href="https://www.codevolve.com/api/v1/access_token/BEC2F7DB20E19EFC673207E28ED2CE78">lien</a></h1>
+    <p><a href="https://github.com/tdimnet/Simplifiez-vous-le-CSS-avec-Sass/tree/partie-1/chapitre-6/exercice-1">correction</a></p>
+    <p>Nous avons créé des sélecteurs dont le style se base sur leurs relations avec le sélecteur root. La codebase contient déjà un sélecteur pour la classe root. Utilisons le nesting et les combinateurs pour ajouter du style aux éléments entourant et à l'intérieur de l'élément .root dans le fichier HTML.
+
+        Le fichier .scss se trouve dans /sass/main/scss. Il compile dans /public/css/style.css.
+    </p>
+    <h2>OBJECTIFS</h2>
+    <ol>
+        <li>Nestez un sélecteur de la classe .adjacent en utilisant le combinateur voisin ( + ) et assignez-lui le background-color de votre choix.</li>
+        <li>Nestez un sélecteur de la classe .child en utilisant le combinateur enfant ( > ) et assignez-lui la background-color de votre choix.</li>
+        <li>Nestez le sélecteur de la classe .descendant en utilisant un combinateur descendant.
+
+            Normalement, le combinateur descendant est un espace " ", mais avec Sass, nester directement un sélecteur va compiler comme un espace du combinateur descendant dans le CSS.
+            
+            Assignez la background-color de votre choix au sélecteur .descendant nesté.
+        </li>
+        <li>Regardez le résultat HTML dans la fenêtre du navigateur en cliquant sur le bouton "rafraîchir"</li>
+        <li>Regardez le CSS compilé, qui se trouve dans /public/css/
+
+            Chaque classe combinateur devrait avoir pour préfixe la classe.root et le symbole combinateur approprié.
+        </li>
+    </ol>
+    <textarea name="" id="" cols="30" rows="10">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,900i');
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        /* ¡¡¡Nest with combinators below!!!  */
+
+        .root {
+            /*
+            +.adjacent{background-color: red;}
+            >.child{background-color: green;}
+                    /*
+                    Normalement, le combinateur descendant est un espace " ", mais avec Sass, nester directement un sélecteur va compiler comme un espace du combinateur descendant dans le CSS.
+                    */
+            .descendant{background-color: gold;}
+            */
+            font-size: 1.5rem;
+            padding: 2rem;
+            background-color: #15DEA5;
+            color: #fff;
+            text-align: center;
+            border-radius: 2rem;
+        }
+
+        /*
+        //GENERERA CE CODE CSS
+        .root + .adjacent {
+            background-color: red;
+        }
+        .root > .child {
+            background-color: green;
+        }
+        .root .descendant {
+            background-color: gold;
+        }
+        */
+    </textarea>
+    <div class="container">
+        <div class="general">Frère et soeurs</div>
+        <div class="root">Contenu root
+        <div class="child">Contenu enfant
+            <div class="descendant">Contenu descendant</div>
+        </div>
+        </div>
+        <div class="adjacent">Frères et soeurs adjacents</div>
+        <div class="descendant">Une autre classe descendante, mais pas un descendant de root.</div>
+    </div>
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+    <h1>&: l'esperluette</h1>
+    <p>Pour rajouter des régles à l'élément parent...à l'interieur du nesting</p>
+    <textarea name="" id="" cols="30" rows="10">
+        ul {
+          list-style: none;
+          text-align: right;
+              li {
+        
+                 display: inline;
+                font-size: 3rem;
+                color: #D6FFF5;
+                &:hover {
+                    color: #001534;
+                }
+              }
+        }
+
+        //
+        //GÉNÈRERA LE CODE SUIVANT 
+        ul {
+          list-style: none;
+          text-align: right;
+        }
+        ul li {
+          display: inline;
+          font-size: 3rem;
+          color: #D6FFF5;
+        }
+        
+        ul li:hover {
+          color: #001534;
+        }
+    </textarea>
+    <h1>Exercice: esperluette - <a href="https://www.codevolve.com/api/v1/access_token/90D9D9930E399B89C9904C36E82FDE5D">lien</a></h1>
+    <a href="https://github.com/tdimnet/Simplifiez-vous-le-CSS-avec-Sass/tree/partie-1/chapitre-6/exercice-2">correction</a>
+    <p>
+        Le nesting dans Sass est génial mais parfois, il se peut que l'on veuilleur nester un sélecteur qui ne fonctionne pas comme les combinateurs CSS. 
+        C'est par exemple le cas des pseudo-sélecteurs comme :hover et :focus. Dans ce genre de cas, nous allons utiliser une esperluette (&) pour lier le nom du parent à celui de l'enfant qui doit être nesté.
+    </p>
+    <h2>OBJECTIFS:</h2>
+    <ol>
+        <li>Nestez le sélecteur :focus dans la classe séleteur .input</li>
+        <li>Ajoutez un nouveau background-color au sélecteur :focus</li>
+        <li>Regardez le résultat en effectuant une action dans la zone de texte située dans la fenêtre de navigateur</li>
+        <li>Regardez le résultat dans le CSS. Le statut focus devrait avoir un style avec un sélecteur qui se compile ainsi .input:focus {...}</li>
+    </ol>
+    <textarea name="" id="" cols="30" rows="10">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,900i');
+        html, body {
+          font-family: 'Montserrat', sans-serif;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          background-color: #19647E;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        .container {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+        }
+        
+        /* ¡¡¡Nest your :focus selector below!!!  */
+        
+        .input {
+          background-color: #19647E;
+          outline: none;
+          border: 1px solid #EA526F;
+          font-size: 2rem;
+          padding: 1rem;
+          color: #EA526F;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 900;
+          font-style: italic;
+        }
+        
+    </textarea>
+
+
+
+
+
+
+    <hr>
+
+
+
+
+    <h1></h1>
+    <p>
+        Lire cette partie du cours avec l'élève: <a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596489-utilisez-les-combinateurs#/id/r-6597385">N’abusez pas du nesting</a>
+    </p>
+    <p><a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596489-utilisez-les-combinateurs#/id/r-6597382"></a>
+        Mais souvenez-vous, quand vous imbriquez des sélecteurs, vous augmentez la spécificité des sélecteurs compilés. De ce fait, si vous les imbriquez trop, vous allez vous retrouver avec des sélecteurs de très haute spécificité, ce qui les rendra extrêmement difficiles à modifier ou outrepasser si besoin.
+    </p>
+    <p>Plutôt que d’essayer de répliquer exactement la structure du HTML, il est préférable d’écrire des sélecteurs imbriqués qui soient uniquement relatifs au sélecteur racine.</p>
+    <p>En pratique, si vous vous retrouvez à imbriquer au-delà de deux niveaux de profondeur, arrêtez-vous et réfléchissez à la façon dont vous êtes en train de structurer votre bloc.</p>
+    <p>Le nesting a pour inconvénient de facilement créer une surenchère de spécificité. </p>
+    <br>
+    <p>Alors, qu’est-ce qui vaut mieux ? BEM ou nesting ?<br>
+        La réponse est : pourquoi pas les deux !
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+    <pre>
+        Dans Sass, les sélecteurs peuvent être imbriqués, ou nestés, dans d’autres sélecteurs.
+
+        Sass peut créer tous les combinateurs CSS.
+
+        Utilisez l’esperluette pour lier un sélecteur imbriqué à un sélecteur parent sans recourir à un combinateur. 
+
+        Attention à ne pas créer des sélecteurs trop spécifiques. 
+    </pre>
+    <style>
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        /* ¡¡¡Nest with combinators below!!!  */
+
+
+
+
+        html, body {
+        font-family: 'Montserrat', sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #19647E;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        }
+
+        /* ¡¡¡Nest your :focus selector below!!!  */
+
+
+    </style>
+</body>

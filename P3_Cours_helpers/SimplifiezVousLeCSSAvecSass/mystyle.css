@@ -1,0 +1,18 @@
+
+
+/*********************************************************************************************************************
+*********************************************************************************************************************
+*********************************************************************************************************************/
+body{padding:2rem;background:#999;color:black;font-size:1.3rem;font-weight:bold;text-shadow:0 0 1px pink;}
+hr:not(.safe){border:2rem solid red; background:red;margin:5em 0; box-shadow:0 0 1em 1px red;clear:both;}
+h1,h2,h3,h4{text-align:center;border-bottom:solid green;}
+body>p{column-count: 2;box-sizing:border-box;border:solid;padding:1rem;width:49%;display: inline-block;}
+ul{background:whitesmoke;padding:2rem;margin:2rem;}
+li{background:silver;}
+.textarea{padding-top:5rem;border:solid;position:relative;}
+.textarea::before,.textarea::after{position:absolute;top:0;
+    background: rebeccapurple;color:white;
+    padding: 1em;}
+.textarea::before{content:"BEFORE"}
+.textarea::after{content:"AFTER";right:0;}
+.textarea>textarea{width:47.5%; height:500px;padding:10rem;   /*margin-top: 5rem;*/}
