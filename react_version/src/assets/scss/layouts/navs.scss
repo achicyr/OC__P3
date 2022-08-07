@@ -1,0 +1,10 @@
+/**/
+
+.jumbotron{
+    &__form{
+        @extend .formBarreLocation;
+    }
+    &__section{
+        @extend .jumbotronCTA;
+    }
+}

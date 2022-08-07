@@ -1,27 +1,67 @@
 /**/
 
-@mixin mobile-only($max: map-get($breakpoints, mobile)) {
+@mixin icon($content:"..contenu vide..", $where:before){
+    &::#{$where}{
+        content:$content;
+        @extend %fawesome;
+    }
+}
+
+@mixin gchild_r($child:'no child entered', $whattodonext_ka){
+    @extend %pr;
+    >#{$child}{
+        @extend %pa;
+    }
+}
+
+
+@mixin mobile-only($max: map-get($breakpoints, mobile) + "px") {
     @media screen and (max-width: $max){
         @content;
     }
-}
-@mixin tablette-only($min: map-get($breakpoints, mobile) + 1, $max: map-get($max, desktop) - 1) {
+} 
+@mixin tablette-only($min: map-get($breakpoints, mobile) + 1 + "px", $max: map-get($breakpoints, tablette) + "px") {
     @media screen and (min-width: $min) and (max-width: $max){
         @content;
     }
-}
-@mixin desktop-only($min: map-get($breakpoints, desktop)) {
+} 
+@mixin desktop-only($min: map-get($breakpoints, tablette) + 1 + "px", $max: map-get($breakpoints, desktop) + "px") {
     @media screen and (min-width: $min ){
         @content;
     }
-}
-@mixin mobile-and-tablette($max: map-get($breakpoints, desktop) -1) {
+} 
+@mixin tv-only($min: map-get($breakpoints, desktop) + 1 + "px") {
+    @media screen and (min-width: $min ){
+        @content;
+    }
+} 
+@mixin mobile-and-tablette($max: map-get($breakpoints, tablette) + "px") {
     @media screen and (max-width: $max) {
         @content;
     }
 }
-@mixin tablette-and-desktop($min: map-get($breakpoints, desktop)) {
+@mixin tablette-and-desktop($min: map-get($breakpoints, mobile) + 1 + "px", $max: map-get($breakpoint, desktop) + "px") {
     @media screen and (min-width: $min) {
+        @content;
+    }
+}
+@mixin desktop-and-tv($min: map-get($breakpoints, tablette) + 1 + "px") {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+@mixin from-desktop($min: map-get($breakpoints, tablette) + 1 + "px") {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+@mixin from-tablette($min: map-get($breakpoints, mobile) + 1 + "px") {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+@mixin until-desktop($max: map-get($breakpoints, desktop) + "px") {
+    @media screen and (max-width: $max) {
         @content;
     }
 }

@@ -9,85 +9,100 @@
 </head>
 <body>
     
-    <!-- header>h1>img[alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile."] -->
-    <header>
-        <h1><img src="" alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile."></h1>
+    <!-- header.header>img.header__logo[src="assets/images/logo/ohmyfood.png" alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile."] -->
+    <header class="header">
+        <img src="assets/images/logo/ohmyfood.png" alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile." class="header__logo">
     </header>
 
-    <!-- nav>form -->
-    <nav>
-        <!-- input[type="search" id="search"]+label[for="search"]>i.fas.fa- -->
-        <form>
-            <input type="search" id="search">
-            <label for="search"><i class=""></i>
+    <!-- nav.jumbotron>form -->
+    <nav class="jumbotron">
+        <!-- <i class="fa-solid fa-location-dot"></i> -->
+        <!-- input.jumbotron__form[placeholder="Paris, Belleville" type="search" id="search"]+label[for="search"]>i.fas.fa-location-dot -->
+        <form class="jumbotron__form">
+            <label for="search">
+                <!-- <i class="fas fa-location-dot"></i> -->
+                <input type="search" placeholder="Paris, Belleville" id="search">
             </label>
         </form>
-        <!-- section>h1{Réserver le menu qui vous convient}+p{Découvrez des restaurants d'exception sélectionnées par nos soins}+a[href="#"]{Explorer nos restaurants} -->
-        <section>
+        <!-- section.jumbotron__section>h1{Réserver le menu qui vous convient}+p{Découvrez des restaurants d'exception sélectionnées par nos soins}+a[href="#"]{Explorer nos restaurants} -->
+        <section class="jumbotron__section">
             <h1>Réserver le menu qui vous convient</h1>
             <p>Découvrez des restaurants d'exception sélectionnées par nos soins</p>
             <a href="#">Explorer nos restaurants</a>
         </section>
     </nav>
 
-    <!-- main>section*2 -->
+    <!-- <i class="fa-solid fa-mobile-screen-button"></i>
+    <i class="fa-solid fa-list-ul"></i>
+    <i class="fa-solid fa-store"></i> -->
+    <!-- main>section.fonctionnement+article.restaurants -->
     <main>
-        <section>
-            <!-- h2{Fonctionnement}+ol>li*3>i.fas.fa-+h3{Choisissez un restaurant} -->
-            <h2>Fonctionnement</h2>
-            <ol>
+        <section class="fonctionnement">
+            <!-- h2.fonctionnement__titre{Fonctionnement}+ol.fonctionnement__liste>li*3>i.fas.fa-+h3{Choisissez un restaurant} -->
+            <h2 class="fonctionnement__titre">Fonctionnement</h2>
+            <ol class="fonctionnement__liste --numerotee_0 --iconed_0 --hoverable_0">
                 <li>
-                    <i class="fas fa-"></i>
                     <h3>Choisissez un restaurant</h3>
                 </li>
                 <li>
-                    <i class="fas fa-"></i>
-                    <h3>Composez votre menu</h3>
+                    <h3>Choisissez un restaurant</h3>
                 </li>
                 <li>
-                    <i class="fas fa-"></i>
-                    <h3>Déguster au restaurant</h3>
+                    <h3>Choisissez un restaurant</h3>
                 </li>
             </ol>
         </section>
-        <section>
-            <!-- h2{Restaurants}+figure*4>img[src="assets/images/restaurant/.jpg" alt="Les plat du restaurant 'La palette du goût'"]+h3{La palette du goût}+p{Ménilmontant}+i.fas.fa-heart -->
-            <h2>Restaurants</h2>
-            <figure>
-                <img src="assets/images/restaurant/.jpg" alt="Les plat du restaurant 'La palette du goût'">
-                <h3>La palette du goût</h3>
-                <p>Ménilmontant</p>
-                <i class="fas fa-heart"></i>
+        <article class="restaurants">
+            <!-- <i class="fa-solid fa-heart"></i> -->
+            <!-- h2.restaurants__titre{Restaurants}+figure.restaurants__card.cards*4>a.cards__makeClickable[href="/menu-$.html"]+img.cards__image[src="assets/images/restaurants/restaurant-$.jpg" alt="Les plat du restaurant 'La palette du goût'"]+figcaption.cards__content>h3{La palette du goût}+p{Ménilmontant}+input[id="card-$" type="checkbox"]+label[for="card-$"] -->
+            <h2 class="restaurants__titre">Restaurants</h2>
+            <figure class="restaurants__card cards">
+                <a href="/menus.html" class="cards__makeClickable"></a>
+                <img src="assets/images/restaurants/restaurant-1.jpg" alt="Les plat du restaurant 'La palette du goût'" class="cards__image" />
+                <figcaption class="cards__content">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <input type="checkbox" id="card-1"><label for="card-1"></label></figcaption>
             </figure>
-            <figure>
-                <img src="assets/images/restaurant/.jpg" alt="Les plat du restaurant 'La palette du goût'">
-                <h3>La palette du goût</h3>
-                <p>Ménilmontant</p>
-                <i class="fas fa-heart"></i>
+            <figure class="restaurants__card cards">
+                <a href="/menus.html" class="cards__makeClickable"></a>
+                <img src="assets/images/restaurants/restaurant-2.jpg" alt="Les plat du restaurant 'La palette du goût'" class="cards__image" />
+                <figcaption class="cards__content">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <input type="checkbox" id="card-2"><label for="card-2"></label></figcaption>
             </figure>
-            <figure>
-                <img src="assets/images/restaurant/.jpg" alt="Les plat du restaurant 'La palette du goût'">
-                <h3>La palette du goût</h3>
-                <p>Ménilmontant</p>
-                <i class="fas fa-heart"></i>
+            <figure class="restaurants__card cards">
+                <a href="/menus.html" class="cards__makeClickable"></a>
+                <img src="assets/images/restaurants/restaurant-3.jpg" alt="Les plat du restaurant 'La palette du goût'" class="cards__image" />
+                <figcaption class="cards__content">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <input type="checkbox" id="card-3"><label for="card-3"></label></figcaption>
             </figure>
-            <figure>
-                <img src="assets/images/restaurant/.jpg" alt="Les plat du restaurant 'La palette du goût'">
-                <h3>La palette du goût</h3>
-                <p>Ménilmontant</p>
-                <i class="fas fa-heart"></i>
+            <figure class="restaurants__card cards">
+                <a href="/menus.html" class="cards__makeClickable"></a>
+                <img src="assets/images/restaurants/restaurant-4.jpg" alt="Les plat du restaurant 'La palette du goût'" class="cards__image" />
+                <figcaption class="cards__content">
+                    <h3>La palette du goût</h3>
+                    <p>Ménilmontant</p>
+                    <input type="checkbox" id="card-4"><label for="card-4"></label></figcaption>
             </figure>
-        </section>
+        </article>
     </main>
     
-    <!-- footer>h4{ohmyfood}+(h5*2>i.fas.fa-+span{Porposer un restaurant})+h5*2>a[href="#"]{Mentions légales} -->
-    <footer>
-        <h4>ohmyfood</h4>
-        <h5><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
-        <h5><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
-        <h5><a href="#">Mentions légales</a></h5>
-        <h5><a href="#">Mentions légales</a></h5>
+    <!-- <i class="fa-solid fa-utensils"></i> -->
+    <!-- <i class="fa-solid fa-handshake-angle"></i> -->
+    <!-- footer.footer>h4.footer__titreLogo{ohmyfood}+(h5.footer__titreIcon*2>i.fas.fa-+span{Porposer un restaurant})+a.footer__lien*2[href="#"]{Mentions légales} -->
+    <footer class="footer">
+        <h4 class="footer__titreLogo">ohmyfood</h4>
+        <h5 class="footer__titreIcon"><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
+        <h5 class="footer__titreIcon"><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
+        <a href="#" class="footer__lien">Mentions légales</a>
+        <a href="#" class="footer__lien">Contact</a>
     </footer>
-    
+    <div class="modal">
+        <div>???.;.:.<span>Oh</span><span>My</span><span>FoOd</span>.;.:.!!!</div>
+    </div>
 </body>
 </html>

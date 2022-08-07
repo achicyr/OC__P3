@@ -4,7 +4,7 @@
 
 Une vidéo d'introduction du projet par le mentor:
 
-[![INTRODUCTION MENTOR](https://raw.githubusercontent.com/achicyr/OC___frontend/master/assets/video_background.jpg)](https://www.youtube.com/watch?v=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&list=PLWZ83QCrp6NsligPZowq4TBh03H4Ufy9w&ab_channel=Archist111 "Introduction du P5 par le mentor")
+[![INTRODUCTION MENTOR](https://raw.githubusercontent.com/achicyr/OC___frontend/master/assets/video_background.jpg)](https://www.youtube.com/watch?v=aRXMWUm1KPc&t=9s&ab_channel=Archist111 "Introduction du P3 par le mentor")
 
 [![DÉMONSTRATION MENTOR PCK66](https://raw.githubusercontent.com/achicyr/OC___frontend/master/assets/video_background.jpg)](https://www.youtube.com/watch?v=6Qk0BteLv5A&ab_channel=PCK66 "Démonstration du P3 par le mentor PCK66")
 
@@ -68,10 +68,19 @@ LES LIENS EN RAPPORT AVEC LA VIDÉO D'INTRODUCTION:
 ##### Chrome(Browsers)'s plugins: 
    - [P6: Disable Content-Security-Policy]()https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden/related)
 ##### VSCode plugins: 
-   - [FOR ME: Code Snap]()
-   - [P6: REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-       - [tuto](https://www.youtube.com/watch?v=RcxvrhQKv8I&ab_channel=BrianMorrison)
-   - P2 Brackets:
+##### LOREM
+  - [swiss](https://marketplace.visualstudio.com/items?itemName=luisfontes19.vscode-swissknife)
+  - [pics](https://marketplace.visualstudio.com/items?itemName=ZaferAYAN.lorem-picsum)
+  - [faker](https://marketplace.visualstudio.com/items?itemName=deerawan.vscode-faker)
+  - [dummy](https://marketplace.visualstudio.com/items?itemName=gurayyarar.dummytextgenerator)
+  - [textpower proof](https://marketplace.visualstudio.com/items?itemName=qcz.text-power-tools)
+  - [insert random](https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.insert-random-text)
+  - [texttoolbox](https://marketplace.visualstudio.com/items?itemName=CarloCardella.vscode-texttoolbox)
+##### autres
+  - [FOR ME: Code Snap]()
+  - [P6: REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+    - [tuto](https://www.youtube.com/watch?v=RcxvrhQKv8I&ab_channel=BrianMorrison)
+  - P2 Brackets:
        - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=BracketPairColorDLW.bracket-pair-color-dlw)
        - [Bracket selector](https://marketplace.visualstudio.com/items?itemName=chunsen.bracket-select)
        - [Bracket lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens)
@@ -79,7 +88,9 @@ LES LIENS EN RAPPORT AVEC LA VIDÉO D'INTRODUCTION:
    - [P2: Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
    - [P2: GitLens]()
    - [P2: GitDesktop]()
-   - [P2: les icones]()
+   - [P2: Font Awesome Auto-complete & Preview](https://marketplace.visualstudio.com/items?itemName=Janne252.fontawesome-autocomplete)
+   - [P2: Font Awesome Gallery](https://marketplace.visualstudio.com/items?itemName=tomasvergara.vscode-fontawesome-gallery)
+   - [cdnjs](https://marketplace.visualstudio.com/items?itemName=JakeWilson.vscode-cdnjs)
    - [P2?: icons](https://marketplace.visualstudio.com/items?itemName=tal7aouy.icons)
    - [P2: file-icons](https://marketplace.visualstudio.com/items?itemName=file-icons.file-icons)
    - P5: JS snippets:

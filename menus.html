@@ -5,22 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ohmyfood: La palette du goût, leurs savoureux plats gadtronomiques</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-    <!-- header>(a[href="/"]>i.fas.fa-)+h1>img[alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile."] -->
-    <header>
-        <a href="/"><i class="fas fa-"></i></a>
-        <h1><img src="" alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile."></h1>
+    <!-- <i class="fa-solid fa-arrow-left"></i> -->
+    <!-- header.header>img.header__logo[src="assets/images/logo/ohmyfood.png" alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile."] -->
+    <header class="header">
+        <a href="/" class="header__retourBtn"></a>
+        <img src="assets/images/logo/ohmyfood.png" alt="logo OhMyFood: commande de repas gastronomique en ligne 100% mobile." class="header__logo">
     </header>
 
 
-    <!-- main>(h1{La palette du goût}>i.fas.fa-heart)+(section*3>h2{ENTRÉES}+ul>li*3>h3{Ravioles de foie gras}+p>(span{Accompagnés de leur crème à la truffe}+span{35€}))+a[href="#"]{Commander} -->
-    <main>
-        <h1>La palette du goût<i class="fas fa-heart"></i></h1>
-        <section>
-            <h2>ENTRÉES</h2>
-            <ul>
+    <!-- <i class="fas fa-check-circle"></i> -->
+    <!-- main.carte>(h1.carte__titre{La palette du goût}>input[type="checkbox" id="heart"]+label[for="heart"])+(section.carte__section.plat*3>h2.plat__titre{ENTRÉES}+ul.plat__liste>li*3>h3{Ravioles de foie gras}+p>(span{Accompagnés de leur crème à la truffe}+span{35€}))+a.carte__btn[href="#"]{Commander} -->
+    <main class="carte">
+        <h1 class="carte__titre">
+            La palette du goût
+            <input type="checkbox" id="heart" />
+            <label for="heart"></label>
+        </h1>
+        <section class="carte__section plat">
+            <h2 class="plat__titre">ENTRÉES</h2>
+            <ul class="plat__liste">
                 <li>
                     <h3>Ravioles de foie gras</h3>
                     <p><span>Accompagnés de leur crème à la truffe</span><span>35€</span></p>
@@ -35,9 +42,9 @@
                 </li>
             </ul>
         </section>
-        <section>
-            <h2>ENTRÉES</h2>
-            <ul>
+        <section class="carte__section plat">
+            <h2 class="plat__titre">ENTRÉES</h2>
+            <ul class="plat__liste">
                 <li>
                     <h3>Ravioles de foie gras</h3>
                     <p><span>Accompagnés de leur crème à la truffe</span><span>35€</span></p>
@@ -52,9 +59,9 @@
                 </li>
             </ul>
         </section>
-        <section>
-            <h2>ENTRÉES</h2>
-            <ul>
+        <section class="carte__section plat">
+            <h2 class="plat__titre">ENTRÉES</h2>
+            <ul class="plat__liste">
                 <li>
                     <h3>Ravioles de foie gras</h3>
                     <p><span>Accompagnés de leur crème à la truffe</span><span>35€</span></p>
@@ -69,17 +76,19 @@
                 </li>
             </ul>
         </section>
-        <a href="#">Commander</a>
+        <a href="#" class="carte__btn">Commander</a>
     </main>
 
 
-    <!-- footer>h4{ohmyfood}+(h5*2>i.fas.fa-+span{Porposer un restaurant})+h5*2>a[href="#"]{Mentions légales} -->
-    <footer>
-        <h4>ohmyfood</h4>
-        <h5><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
-        <h5><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
-        <h5><a href="#">Mentions légales</a></h5>
-        <h5><a href="#">Mentions légales</a></h5>
+    <!-- <i class="fa-solid fa-utensils"></i>
+    <i class="fa-solid fa-handshake-angle"></i> -->
+    <!-- footer.footer>h4.footer__titreLogo{ohmyfood}+(h5.footer__titreIcon*2>i.fas.fa-+span{Porposer un restaurant})+a.footer__lien*2[href="#"]{Mentions légales} -->
+    <footer class="footer">
+        <h4 class="footer__titreLogo">ohmyfood</h4>
+        <h5 class="footer__titreIcon"><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
+        <h5 class="footer__titreIcon"><i class="fas fa-"></i><span>Porposer un restaurant</span></h5>
+        <a href="#" class="footer__lien">Mentions légales</a>
+        <a href="mailto:aaa@bbb.ccc" class="footer__lien">Contact</a>
     </footer>
 
     
