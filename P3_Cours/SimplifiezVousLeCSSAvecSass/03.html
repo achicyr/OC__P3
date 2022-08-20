@@ -1,0 +1,232 @@
+<link rel="stylesheet" href="style.css">
+<body>
+    <ul>
+        <li><a href="https://www.codevolve.com/api/v1/access_token/0253F0F16955A2C5A86F9FE5899C66D8">Exercice</a></li>
+        <li><a href="https://github.com/tdimnet/Simplifiez-vous-le-CSS-avec-Sass/tree/partie-1/chapitre-3%2Fexercice-1"></a>correction</li>
+    </ul>
+    <img src="BEM-example-welcome.png" alt="">
+    <h1>Nota bene</h1>
+    <ul>
+        <li>Les sélecteurs BEM (ce sont des "sélecteurs de classe") sont toujours implémentés sous forme de classes.</li>
+        <li>Vous devez être sûr que vos sélecteurs BEM ont une spécificité aussi basse que possible.</li>
+    </ul>
+    <hr>  
+
+
+
+    <section class="proj-prev proj-prev--mint">
+      <div class="proj-prev__image">
+          <img src="https://picsum.photos/200/300" alt="project title goes here" >
+      </div>
+      <h1 class="proj-prev__heading">
+          Project Title
+      </h1>
+      <p class="proj-prev__byline">
+          project keywords would go here
+      </p>
+    </section>
+    <section class="proj-prev proj-prev--mint">
+      <div class="proj-prev__image">
+          <img src="https://picsum.photos/200/300" alt="project title goes here" >
+      </div>
+      <h1 class="proj-prev__heading">
+          Project Title
+      </h1>
+      <p class="proj-prev__byline">
+          project keywords would go here
+      </p>
+    </section>
+    <section class="proj-prev proj-prev--mint">
+      <div class="proj-prev__image">
+          <img src="https://picsum.photos/200/300" alt="project title goes here" >
+      </div>
+      <h1 class="proj-prev__heading">
+          Project Title
+      </h1>
+      <p class="proj-prev__byline">
+          project keywords would go here
+      </p>
+    </section>
+
+
+
+
+    <hr>
+
+
+
+
+    <textarea id="" cols="200" rows="30">
+        .nav {
+              padding-right: 6rem;
+              text-align: right;
+            }
+            
+            .nav__link {
+              display: inline;
+              font-size: 3rem;
+              padding-left: 1.5rem;
+            
+            }
+            
+             
+            
+            .nav__link a {
+              text-decoration: none;
+              color: #D6FFF5;
+            }
+            
+             
+            
+            .nav__link--active {
+              color: #001534;
+            }
+            
+             
+            
+            .nav__link a:hover {
+              color: #fff;
+            }
+    </textarea>
+
+
+
+
+    <hr>
+
+
+
+
+    <p>les <u>pseudoclasses</u>, comme par exemple :hover, et les combinateurs, tels que les <u>combinateurs</u> descendants, peuvent parfaitement être utilisés. </p>
+    <textarea cols="30" rows="10">
+        <ul class="list">
+          <li>List Item</li>
+          <li>List Item</li>
+          <li>List Item</li>
+        </ul>
+    </textarea>
+    <textarea cols="200" rows="10">
+        ul.list {
+          list-style:none;
+        }
+        
+         
+        
+        ul.list > li {
+          font-weight: 100;
+          color: #001534;
+        }
+    </textarea>
+    <p>Ce qui donne un HTML beaucoup plus propre que d’appliquer une classe à chaque <li></li></p>
+
+
+
+
+    <hr>
+
+
+
+
+    <h1>Exercice BEM <a href="https://www.codevolve.com/api/v1/access_token/0253F0F16955A2C5A86F9FE5899C66D8">lien</a></h1>
+    <textarea cols="200" rows="15">
+        Nous avons créé un sondage dans lequel nous pouvons décider si un chiot est mignon ou trèèèès mignon. 
+        Mais maintenant que nous avons découvert la beauté de BEM, notre CSS semble un peu désordonné.
+
+        Revenons en arrière et refactorons notre code en convertissant les classes qui forment notre bloc "sondage", en utilisant la méthodologie BEM.
+
+        Le fichier .css se trouve dans /public/css/style.css.
+    </textarea>
+    <textarea cols="200" rows="50">
+        @charset "UTF-8";
+        @import url("https://fonts.googleapis.com/css?family=Montserrat:100,900i");
+        html, body {
+        font-family: "Montserrat", sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        }
+
+        /* ¡¡¡Start refactoring below!!!  */
+        .poll {
+        width: 33%;
+        border: 1px solid #15DEA5;
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        }
+
+        .pic {
+        width: 100%;
+        align-self: center;
+        }
+
+        .opt {
+        width: 40%;
+        cursor: pointer;
+        text-align: center;
+        background: #15DEA5;
+        padding: 1.5rem;
+        margin-top: 0.5rem;
+        color: #fff;
+        }
+
+        .opt-pink {
+        background: #EA526F;
+        }
+    </textarea>
+    <h2>OBJECTIFS</h2>
+    <ul>
+        <li>Identifiez le bloc classe et utilisez-le comme une base pour nommer les éléments et les modificateurs.</li>
+        <li>Convertissez le nom des autres classes pour qu'elles deviennent des éléments et des modificateurs à l'intérieur du bloc sondage</li>
+        <li>Mettez à jour le HTML avec les noms de la nouvelle classe.</li>
+    </ul>
+    <div class="container">
+        <div class="poll">
+        <img src="https://images.pexels.com/photos/460823/pexels-photo-460823.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="😍" class="pic">
+        <div class="opt">Mignon</div>
+        <div class="opt opt-pink">Trèèèèès mignon</div>
+        </div>
+    </div>
+
+
+
+
+    <hr>
+
+
+
+
+    <pre>
+        BEM signifie bloc, élément, modificateur :
+
+            les blocs sont des bouts de code autonomes ;
+
+            les éléments sont les parties qui forment le bloc ;
+
+            les modificateurs changent l’apparence ou le comportement d’un bloc ou d’un élément.
+
+        Les blocs sont nommés en fonction de leur rôle :
+
+            les éléments indiquent le nom de leur bloc parent, suivi d’un double underscore/dunder (__) puis du rôle de l’élément : form__label.
+
+        Les modificateurs utilisent le nom du bloc ou de l’élément qu’ils modifient, suivi de deux tirets (--) et de ce que le sélecteur modifie : button--green.
+
+        Vous n’avez pas besoin d’attribuer à chaque élément d’une page web un sélecteur de classe. Vous pouvez utiliser les sélecteurs pour que votre code HTML soit plus propre et concis.
+
+
+        
+        Le chapitre suivant va vous présenter des outils qui donneront plus de structure visuelle à votre CSS, tout en vous facilitant la vie au passage. Préparez-vous à plonger dans le monde des préprocesseurs CSS et de Sass ! 
+    </pre>
+</body>

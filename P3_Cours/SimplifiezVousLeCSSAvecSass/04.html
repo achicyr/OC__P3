@@ -1,0 +1,207 @@
+<link rel="stylesheet" href="style.css">
+<body>
+    <ul>
+        <li><a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596497-utilisez-les-preprocesseurs-css-pour-des-fonctionnalites-avancees#/id/r-6597215">variables</a></li>
+        <li><a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596497-utilisez-les-preprocesseurs-css-pour-des-fonctionnalites-avancees#/id/r-6595845">boucles</a></li>
+        <li><a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596497-utilisez-les-preprocesseurs-css-pour-des-fonctionnalites-avancees#/id/r-6597225">conditions</a></li>
+    </ul>
+    <h1>Nota bene</h1>
+    <ul>
+        <li>
+            <p>indenter vos éléments et modificateurs au sein de leur bloc parent:</p>
+            <pre>
+                .nav {
+                    padding-right: 6rem;
+                    flex: 2 1 auto;
+                    text-align: right;
+                        .nav__link {
+                          display: inline;
+                          font-size: 3rem;
+                          padding-left: 1.5rem;
+                              .nav__link--active {
+                                color: #001534;
+                              }
+                        }
+                }
+            </pre>
+            <p>Regardez donc une écriture utilisant le nesting dans un préprocesseur, à gauche, avec le résultat en CSS classique à droite :</p>
+            <img src="./nesting_SCSS_vs_CSS.png" alt="">
+        </li>
+    </ul>
+
+
+
+
+
+    <hr>  
+
+
+
+
+    <h1>Faisons du nesting</h1>
+    <textarea name="" id="" cols="30" rows="40">
+        .nav {
+            padding-right: 6rem;
+            flex: 2 1 auto;
+            text-align: right;
+                .nav__link {
+                  display: inline;
+                  font-size: 3rem;
+                  padding-left: 1.5rem;
+                      .nav__link--active {
+                        color: #001534;
+                      }
+                }
+        }
+        //ESSAYEZ DE CRÉER UNE HIÉRARCHIE DE CE TYPE PLUS HAUT
+
+    </textarea>
+
+
+
+
+
+    <hr class="safe">
+
+
+
+
+    
+    <h2>Les variables</h2>
+    <a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596497-utilisez-les-preprocesseurs-css-pour-des-fonctionnalites-avancees#/id/r-6595841">lien cours - variables</a>
+    <p>Les variables vous permettent de stocker des valeurs répétées fréquemment, comme par exemple les couleurs et les mensurations, dans un élément unique que vous pouvez réutiliser à travers l’ensemble de votre code. Imaginez que vous avez utilisé une nuance de vert des centaines de fois dans un site, mais que vous décidez de le changer en rouge. Grâce aux variables, il vous suffit de faire le changement une seule fois et il sera répercuté partout où la variable a été utilisée. Un seul changement est plus propre et facile que des centaines</p>
+    <textarea name="" id="" cols="30" rows="10">
+        $mint: #15DEA5;
+        .header {
+          background-color: $mint
+        }
+
+        //LE CODE CI-DESSUS 
+        // GÉNÈRERA LE CODE CI-DESSOUS
+        .header {
+          background-color: #15DEA5;
+        }
+    </textarea>
+
+
+
+
+
+
+    <hr class="safe">
+
+
+
+
+
+    
+    <h2>Les boucles</h2>
+    <a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596497-utilisez-les-preprocesseurs-css-pour-des-fonctionnalites-avancees#/id/r-6595857">lien cours - boucles</a>
+    <p>Les boucles, qui automatisent les tâches répétitives telles que la création d’une série de modificateurs de couleurs, par exemple, vous épargnent un vrai calvaire tout en gardant une codebase plus petite et plus simple à gérer :</p>
+    <textarea name="" id="" cols="30" rows="30">
+        $colours: (
+          mint: #15DEA5,
+          navy: #001534,
+          seafoam: #D6FFF5,
+          white: #fff,
+          rust: #DB464B
+        );
+
+        @each $colour, $hex in $colours {
+          .btn--#{$colour} {
+              background-color: $hex;
+          }
+        }
+
+        //LE CODE SCSS CI-DESSUS 
+        // GÉNÈRERA LE CODE CSS CI-DESSOUS
+        .btn--mint {
+          background-color: #15DEA5;
+        }
+        
+        .btn--navy {
+          background-color: #001534;
+        }
+        
+        .btn--seafoam {
+          background-color: #D6FFF5;
+        }
+        
+        .btn--white {
+          background-color: #fff;
+        }
+        
+        .btn--rust {
+          background-color: #DB464B;
+        }
+    </textarea>
+
+
+
+
+    <hr class="safe">
+
+
+
+
+
+    <h2>structures conditionnelles (ou conditions)</h2>Les boucles, qui automatisent les tâches répétitives telles que la création d’une série de modificateurs de couleurs, par exemple, vous épargnent un vrai calvaire tout en gardant une codebase plus petite et plus simple à gérer :
+    <a href="https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6596497-utilisez-les-preproceLes boucles, qui automatisent les tâches répétitives telles que la création d’une série de modificateurs de couleurs, par exemple, vous épargnent un vrai calvaire tout en gLes boucles, qui automatisent les tâches répétitives telles que la création d’une série de modificateurs de couleurs, par exemple, vous épargnent un vrai calvaire tout en gardant une codebase plus petite et plus simple à gérer :ardant une codebase plus petite et plus simple à gérer :sseurs-css-pour-des-fonctionnalites-avancees#/iLes boucles, qui automatisent les tâches répétitives telles que la création d’une série de modificateurs de couleurs, par exemple, vous épargnent un vrai calvaire tout en gardant une codebase plus petite et plus simple à gérer :d/r-6595868">lien cours - conditions</a>
+    <p>Les opérations logiques vous permettent d’écrire un même bloc de code que vous pouvez utiliser dans différentes circonstances. Ex: le fond est bleu foncé, alors passer le texte en blanc. Avec le temps, cela vous donne une codebase plus petite, plus concise qui est donc beaucoup plus facile à maintenir.</p>
+    <textarea name="" id="" cols="30" rows="10">
+        @if (lightness(#15DEA5) > 25%) {
+          .header {
+              color: #fff;
+              background-color: $mint;
+          }
+        
+        }@else{
+          .header {
+          color: #000;
+          background-color: $mint;
+          } 
+        }
+
+        //LE CODE SCSS CI-DESSUS 
+        // GÉNÈRERA LE CODE CSS CI-DESSOUS
+        .header {
+          color: #fff;
+          background-color: #15DEA5;
+        }
+    </textarea>
+
+
+
+
+
+    <hr>
+
+
+
+
+
+    <h1>Utilisons des variantes de SASS</h1>
+    <ul>
+        <li>Sass: (tu connais déjà ;)</li>
+        <li>Less: <a href="https://lesscss.org/">lien vers less</a></li>
+        <li>Stylus: <a href="https://stylus-lang.com/">lien vers Stylus</a></li>
+    </ul>
+
+
+
+
+
+    <hr>
+
+
+
+
+    <pre>
+        Les préprocesseurs CSS vous permettent d’imbriquer votre code (on appelle ça le nesting) pour créer une hiérarchie plus facile à lire et regrouper des morceaux de code entre eux.
+
+        Il existe plein de préprocesseurs, mais le plus courant est Sass, qui signifie Syntactically Awesome Style Sheets (“Feuilles de style syntaxiquement fantastiques”).
+
+        Au-delà du nesting, les préprocesseurs vous permettent d’utiliser des fonctionnalités de programmation pour créer une codebase plus maintenable, tout en diminuant les énormes quantités de code à écrire.
+    </pre>
+
+</body>

@@ -1,0 +1,249 @@
+<link rel="stylesheet" href="style.css">
+<body>
+    <ul>
+        <li><a href="https://next.tech/projects/fe7d5a93-7757-4f95-bd72-919a79854f2d?access_token=C7381CD4C08B932F75ADE8308F369960&internal=false"></a><br/>
+            <a href="https://github.com/tdimnet/Simplifiez-vous-le-CSS-avec-Sass/tree/partie-1/chapitre-5/exercice-2">correction</a>
+        </li>
+    </ul>
+    <h1>Nota bene</h1>
+    <ul>
+        <li>Il existe deux manières d’écrire du Sass:   .sass  et.scss</li>
+        <li>En  .sass, dites adieu aux accolades et aux points-virgules ! À la place, elle utilise uniquement des tabulations et des retours à la ligne pour la mise en forme du code. La syntaxe  .sass produit donc une codebase plus propre, mais surtout plus lisible. Sans compter qu’éviter toute cette ponctuation vous permet aussi d’écrire plus vite.</li>
+        <li></li>
+    </ul>
+
+
+
+
+
+    <hr>  
+
+
+
+
+    <h1>les fichiers .sass vs .scss</h1>
+    <textarea cols="30" rows="10">
+        .nav {
+              padding-right: 6rem;
+              flex: 2 1 auto;
+              text-align: right;
+              nav__link {
+                  display: inline;
+                  font-size: 3rem;
+                  padding-left: 1.5rem;
+                  nav__link--active {
+                    color: #001534;
+                  }
+              }
+        }
+
+        //LE CODE .scss CI-DESSUS
+        //EST ÉQUIVALENTE AU CODE .sass CI-DESSOUS
+        .nav 
+            padding-right: 6rem;
+            flex: 2 1 auto;
+            text-align: right;
+            nav__link 
+                display: inline;
+                font-size: 3rem;
+                padding-left: 1.5rem;
+                nav__link--active 
+                    color: #001534;
+    </textarea>
+
+
+
+
+    <hr>
+
+
+
+
+    <h1>Exercice 1:  <a target="_blank" href="https://next.tech/projects/fe7d5a93-7757-4f95-bd72-919a79854f2d?access_token=C7381CD4C08B932F75ADE8308F369960&internal=false">compiler son son fichier .sass</a></h1>
+    <p>Nous allons maintenant coder notre CSS dans le fichier SCSS. Ce code sera ensuite compilé en un fichier CSS qui sera généré dans le répertoire /public/css/style.css Cela vous permettra de découvrir la compilation Sass.</p>
+    <h2>OBJECTIFS</h2>
+    <ul>
+        <li>Ajoutez deux propriétés CSS de votre choix comme background-color ou padding dans le fichier Sass en ciblant une classe appelée test</li>
+        <li>Comparez votre .scss au .css compilé (ils doivent être identiques)</li>
+        <li>Ajoutez la classe test à la div HTML et observez les résultats</li>
+    </ul>
+    <textarea name="" id="" cols="30" rows="10">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,900i');
+            html, body {
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            }
+
+            * {
+            box-sizing: border-box;
+            }
+
+            .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            }
+
+            .test{background-color: red;color:white;}
+            /* ¡¡¡Commencez à écrire ci-dessous ! Start writing your Sassy CSS below!!!  */
+
+    </textarea>
+    <div class="container">
+      <div class="test">Test Contenu</div>
+    </div>
+
+
+
+
+    <hr>
+
+
+
+
+    <h1>Exercice 2: <a target="_blank" href="https://www.codevolve.com/api/v1/access_token/F19172B865187328F9DD65C62DE1604D">nesting</a></h1>
+    <p>Donnons de la structure à notre CSS et mettons en application nos connaissances sur le nesting. Nous avons un sélecteur .parent et un sélecteur .child. Organisons-les pour refléter leurs relations en utilisant le nesting Sass, en plaçant les règles de .child dans les règles de .parent.</p>
+    <h2>OBJECTIFS</h2>
+    <ul>
+        <li>Nestez le sélecteur .child et son contenu dans .parent.</li>
+        <li>Regardez le CSS résultant. La classe .child nestée devrait maintenant compiler en tant que .parent.child {...}</li>
+    </ul>
+    <textarea name="" id="" cols="30" rows="10">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,900i');
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        /* ¡¡¡Commencez à écrire ci-dessous Start writing your Sassy CSS below!!!  */
+
+        .parent {
+            font-size: 1.5rem;
+            padding: 2rem;
+            background-color: #15DEA5;
+            color: #fff;
+            text-align: center;
+            border-radius: 2rem;
+        }
+
+        .child {
+            padding: 1rem;
+            background-color: #19647E;
+            margin-top: 1rem;
+            border-radius: 10rem;
+        }
+
+    </textarea>
+    <div class="container">
+      <div class="parent">
+        Contenu parent
+        <div class="child">Contenu enfant</div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>RÉSUMÉ</h1>
+    <pre>
+        La syntaxe .scss est très similaire à la syntaxe CSS.
+
+        On peut utiliser du code CSS préexistant dans Sass en l’intégrant dans un fichier .scss.
+
+        La syntaxe .sass est plus concise mais .scss  reste plus couramment utilisée.
+
+        Le nesting permet d’imbriquer les sélecteurs comme en HTML. 
+    </pre>
+    <style>
+        html, body {
+        font-family: 'Montserrat', sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        }
+
+        .test{background-color: red;color:white;}
+        /* ¡¡¡Commencez à écrire ci-dessous ! Start writing your Sassy CSS below!!!  */
+
+
+
+        /****/
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        /* ¡¡¡Commencez à écrire ci-dessous Start writing your Sassy CSS below!!!  */
+
+        .parent {
+            font-size: 1.5rem;
+            padding: 2rem;
+            background-color: #15DEA5;
+            color: #fff;
+            text-align: center;
+            border-radius: 2rem;
+        }
+
+        .child {
+            padding: 1rem;
+            background-color: #19647E;
+            margin-top: 1rem;
+            border-radius: 10rem;
+        }
+    </style>
+</body>

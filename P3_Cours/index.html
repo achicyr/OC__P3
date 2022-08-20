@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="style.css">
+<script>
+	i=0,b=[0],j=0
+	setInterval(()=>{
+		document.querySelector('.btn__flip').style.paddingBottom=++j+'px'
+		i++
+		console.log('okok+'+i)
+		b.push(b[++i]++)
+		console.log(b)
+	}, 30)
+</script>
+<div>
+	<div class="button3d">
+		<div class="btn3d">
+		  <div class="btn__flip">
+			  <div class="btn__flip--off">OFF</div>
+			  <div class="btn__flip--on">ON</div>
+		  </div>
+		</div>
+	  </div>
+  </div>
+  
+  <div class="ok">je suis ok
+	<div class="okok">et moi okok</div>
+  </div>

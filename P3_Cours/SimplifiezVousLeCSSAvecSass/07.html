@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="style.css">
+<body>
+    <ul>
+    </ul>
+    <h1>Nota bene</h1>
+    <ul>
+    </ul>
+
+
+
+
+
+    <hr>  
+
+
+
+
+    <h1>SASS + BEM</h1>
+    <h2>PROBLEME</h2>
+    <ul>
+        <li>Des modificateurs et des éléments ayant des degrés de spécificité variables peuvent se retrouver dépareillés, et les règles que vous vouliez outrepasser à certains endroits ne le seront pas, ou alors elles seront outrepassées là où vous ne le vouliez pas.</li>
+        <li> Les petites incohérences de spécificité entre sélecteurs créent des bugs et des comportements imprévisibles. </li>
+    </ul>
+    <textarea name="" id="" cols="30" rows="10">
+        .block{
+          background-color: #15DEA5;
+          .block__element {
+              color: #fff;
+          }
+        }
+        //
+        //CE QUI DONNE EN CSS :
+        .block {
+          background-color: #15DEA5;
+        
+        }
+        .block .block__element {
+          color: #fff;
+        }
+    </textarea>
+    <hr class="safe">
+    <h2>SOLUTION</h2>
+    <textarea name="" id="" cols="30" rows="10">
+        .block{
+          background-color: #15DEA5;
+          &__element {
+              color: #fff;
+          }
+        }
+        //
+        //CE QUI DONNE EN CSS :
+        .block {
+          background-color: #15DEA5;
+        }
+        .block__element {
+          color: #fff;
+        }
+    </textarea>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>RÉSUMÉ</h1>
+    <pre>
+        Pas de panique si votre cerveau frise la surchauffe. Ça veut dire que vous êtes en train d’apprendre. Et pas qu’un peu ! Nous avons branché votre cerveau sur la matrice et vous venez de télécharger l’équivalent de l’art du kung fu en matière de CSS.
+
+        Focalisez-vous plutôt sur les points clé :
+        
+            les incohérences de spécificité entre différents sélecteurs créeront des bugs et des comportements imprévisibles ;
+            
+            utilisez les esperluettes pour un nesting efficace dans Sass sans froisser les principes BEM ; 
+            
+            utilisez le nesting et la spécificité pour créer un système de sélecteurs maintenable dans Sass.
+    </pre>
+    <style>
+        
+    </style>
+</body>
