@@ -1,21 +1,22 @@
+@charset "UTF-8";
 /**/ /**/ /**/ /**/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&family=Shrikhand&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.css");
-.header > a, .headerbarLogo > a {
+.header__retourBtn, .headerbarLogo__retourBtn {
   position: absolute;
 }
 
-.header > a, .headerbarLogo > a {
+.header__retourBtn, .headerbarLogo__retourBtn {
   top: 0;
   bottom: 0;
   left: 0;
 }
 
-.header > a, .headerbarLogo > a {
+.header__retourBtn, .headerbarLogo__retourBtn {
   display: flex;
 }
 
-.header > a, .headerbarLogo > a {
+.header__retourBtn, .headerbarLogo__retourBtn {
   align-items: center;
 }
 
@@ -48,7 +49,7 @@ iteration-count | direction | fill-mode | play-state | name
     transform: translateX(40px);
   }
 }
-@keyframes map {
+@keyframes vibrate0 {
   5% {
     transform: translateX(-2px) rotateZ(-20deg);
   }
@@ -75,6 +76,35 @@ iteration-count | direction | fill-mode | play-state | name
   }
   100% {
     transform: translateX(0px) rotateZ(0deg);
+  }
+}
+@keyframes vibrate1 {
+  5% {
+    transform: translateY(-2px) rotateX(-20deg);
+  }
+  15% {
+    transform: translateY(2px) rotateX(20deg);
+  }
+  30% {
+    transform: translateY(-4px) rotateX(-45deg);
+  }
+  45% {
+    transform: translateY(4px) rotateX(45deg);
+  }
+  60% {
+    transform: translateY(-4px) rotateX(-45deg);
+  }
+  75% {
+    transform: translateY(4px) rotateX(45deg);
+  }
+  85% {
+    transform: translateY(-2px) rotateX(-20deg);
+  }
+  95% {
+    transform: translateY(2px) rotateX(20deg);
+  }
+  100% {
+    transform: translateY(0px) rotateX(0deg);
   }
 }
 @keyframes button {
@@ -123,6 +153,20 @@ iteration-count | direction | fill-mode | play-state | name
   100% {
     color: #99E2D0;
     font-size: 3em;
+  }
+}
+@keyframes lift_up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0.3;
+  }
+  10% {
+    transform: translateY(20px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -491,7 +535,7 @@ a {
   font-weight: 200;
 }
 
-.header > a::before, .footer__titreIcon::before, .footerBasic0__titreIcon::before, .headerbarLogo > a::before, .carte__titre > label::before, .carteRestaurant__titre > label::before, .carte__titre > label::after, .carteRestaurant__titre > label::after, .--languette_0.fonctionnement__liste > li::after, .carte__section > ul.--languette_0 > li::after, .carteRestaurant__section > ul.--languette_0 > li::after, .--languette_0.listChoice__liste > li::after, .carte__section > ul > li::after, .carteRestaurant__section > ul > li::after, .formBarreLocation > label::before, .jumbotron__form > label::before, .restaurants__card__content > label::before, .restaurants .cards__content > label::before, .cardsCoeur__content > label::before, .restaurants__card__content > label::after, .restaurants .cards__content > label::after, .cardsCoeur__content > label::after {
+.header__retourBtn::before, .footer__titreIcon::before, .footerBasic0__titreIcon::before, .headerbarLogo__retourBtn::before, .carte__titre > label::before, .carteRestaurant__titre > label::before, .carte__titre > label::after, .carteRestaurant__titre > label::after, .--languette_0.fonctionnement__liste > li::after, .carte__section > ul.--languette_0 > li::after, .carteRestaurant__section > ul.--languette_0 > li::after, .--languette_0.listChoice__liste > li::after, .carte__section > ul > li::after, .carteRestaurant__section > ul > li::after, .formBarreLocation > label::before, .jumbotron__form > label::before, .restaurants__card__content > label::before, .restaurants .cards__content > label::before, .cardsCoeur__content > label::before, .restaurants__card__content > label::after, .restaurants .cards__content > label::after, .cardsCoeur__content > label::after {
   font-weight: 900;
   font-family: "Font Awesome 6 Free";
 }
@@ -627,7 +671,7 @@ a {
 .restaurants__card__content > input:checked + label::after, .restaurants .cards__content > input:checked + label::after, .cardsCoeur__content > input:checked + label::after {
   opacity: 1;
   color: purple;
-  animation: map 1s ease 1;
+  animation: vibrate0 1s ease 1;
 }
 .restaurants__card__content > input:not(:checked) + label::before, .restaurants .cards__content > input:not(:checked) + label::before, .cardsCoeur__content > input:not(:checked) + label::before {
   animation: map 0.5s ease 1;
@@ -688,6 +732,7 @@ a {
 .fonctionnement, .listChoice {
   padding: 3em 1em;
   counter-reset: i;
+  background: #fff;
 }
 @media screen and (min-width: 961px) {
   .fonctionnement__liste, .carte__section > ul, .carteRestaurant__section > ul, .listChoice__liste {
@@ -699,18 +744,22 @@ a {
 .fonctionnement__liste > li, .carte__section > ul > li, .carteRestaurant__section > ul > li, .listChoice__liste > li {
   position: relative;
   display: flex;
-  background: #eaeaea;
+  background: white;
   box-shadow: 8px 8px 45px -12px rgba(94, 94, 94, 0.62);
   border-radius: 1.5em;
   margin-bottom: 2em;
   cursor: pointer;
 }
 .--languette_0.fonctionnement__liste > li, .carte__section > ul.--languette_0 > li, .carteRestaurant__section > ul.--languette_0 > li, .--languette_0.listChoice__liste > li, .carte__section > ul > li, .carteRestaurant__section > ul > li {
-  width: 33%;
   flex-flow: wrap;
   box-shadow: 0px 5px 30px -10px rgba(94, 94, 94, 0.62);
   padding: 1em;
   overflow: hidden;
+}
+@media screen and (min-width: 961px) {
+  .--languette_0.fonctionnement__liste > li, .carte__section > ul.--languette_0 > li, .carteRestaurant__section > ul.--languette_0 > li, .--languette_0.listChoice__liste > li, .carte__section > ul > li, .carteRestaurant__section > ul > li {
+    width: 30%;
+  }
 }
 .--languette_0.fonctionnement__liste > li::before, .carte__section > ul.--languette_0 > li::before, .carteRestaurant__section > ul.--languette_0 > li::before, .--languette_0.listChoice__liste > li::before, .--languette_0.fonctionnement__liste > li::after, .carte__section > ul.--languette_0 > li::after, .carteRestaurant__section > ul.--languette_0 > li::after, .--languette_0.listChoice__liste > li::after, .carte__section > ul > li::before, .carteRestaurant__section > ul > li::before, .carte__section > ul > li::after, .carteRestaurant__section > ul > li::after {
   position: absolute;
@@ -847,11 +896,17 @@ a {
     content: "";
   }
 }
+.carte__img, .carteRestaurant__img {
+  height: 400px;
+  margin-bottom: -100px;
+  background: #99E2D0;
+}
 .carte__titre, .carteRestaurant__titre {
   background: #eaeaea;
   border-radius: 1.5em 1.5em 0 0;
   padding: 1.25em 1em;
   position: relative;
+  box-shadow: 0 -10px 10px 0.1px gray;
 }
 .carte__titre > input, .carteRestaurant__titre > input {
   display: none;
@@ -888,11 +943,6 @@ a {
   z-index: 1;
   padding: 1em;
 }
-@media screen and (min-width: 571px) {
-  .carte__section, .carteRestaurant__section {
-    background: rgba(255, 255, 255, 0.8);
-  }
-}
 .carte__section > h2, .carteRestaurant__section > h2 {
   position: relative;
 }
@@ -903,6 +953,15 @@ a {
   position: absolute;
   bottom: -5px;
   left: 0;
+}
+.carte__section > ul > li, .carteRestaurant__section > ul > li {
+  animation: lift_up 1s 1;
+}
+.carte__section > ul > li:nth-of-type(2), .carteRestaurant__section > ul > li:nth-of-type(2) {
+  animation-delay: 100ms;
+}
+.carte__section > ul > li:nth-of-type(3), .carteRestaurant__section > ul > li:nth-of-type(3) {
+  animation-delay: 200ms;
 }
 .carte__btn, .carteRestaurant__btn {
   display: block;
@@ -922,11 +981,11 @@ a {
   position: relative;
   padding: 1em 0;
 }
-.headerbarLogo > a {
+.headerbarLogo__retourBtn {
   font-size: 1.5em;
   padding-left: 1em;
 }
-.headerbarLogo > a::before {
+.headerbarLogo__retourBtn::before {
   content: "\f060";
 }
 .headerbarLogo__logo {
@@ -966,6 +1025,448 @@ a {
   font-size: 1em;
 }
 
+.loadingSpinner {
+  z-index: 100;
+  animation: loadS 3s 1 forwards;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #99E2D0;
+}
+.loadingSpinner > svg {
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+}
+.loadingSpinner > svg path {
+  animation: opa 3s 1;
+  animation: vibrate1 2s ease 1;
+}
+.loadingSpinner > svg path:nth-of-type(2n+1) {
+  animation-delay: 500ms;
+}
+.loadingSpinner > svg path:nth-of-type(1) {
+  fill: red;
+}
+.loadingSpinner > svg path:nth-of-type(2) {
+  fill: pink;
+}
+.loadingSpinner > svg path:nth-of-type(3) {
+  fill: purple;
+}
+.loadingSpinner > svg path:nth-of-type(4) {
+  fill: black;
+}
+.loadingSpinner > svg path:nth-of-type(5) {
+  fill: blue;
+}
+.loadingSpinner > svg path:nth-of-type(6) {
+  fill: goldenrod;
+}
+.loadingSpinner > svg path:nth-of-type(7) {
+  fill: orange;
+}
+.loadingSpinner > svg path:nth-of-type(8) {
+  fill: red;
+}
+
+@keyframes opa {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes loadS {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+/********************************
+********************************
+***********volé à:*************
+*https://github.com/Patrick-Garcia1/*
+********************************
+********************************
+/********************************/
+.conteneur {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: black;
+  animation: loader 2.8s linear forwards;
+}
+.conteneur__loader {
+  width: 230px;
+  height: 230px;
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(#9356DC, #99E2D0, #FF79DA);
+  animation: disparait 0.5s ease-in-out forwards 2.3s;
+  /* couches de blur */
+  /* ohmyfood */
+  /* couvert */
+  /* 5 points horizontaux */
+}
+.conteneur__loader--filtre {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9356DC, #99E2D0, #FF79DA);
+  animation: animate 1.5s linear 2;
+  /* 3 satellites */
+}
+.conteneur__loader--filtre:nth-child(1) {
+  filter: blur(0px);
+}
+.conteneur__loader--filtre:nth-child(2) {
+  filter: blur(10px);
+}
+.conteneur__loader--filtre:nth-child(3) {
+  filter: blur(15px);
+}
+.conteneur__loader--filtre:nth-child(4) {
+  filter: blur(25px);
+}
+.conteneur__loader--filtre:nth-child(5) {
+  width: unset;
+  height: unset;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: black;
+  filter: blur(10px);
+}
+.conteneur__loader--filtre:nth-child(6) {
+  background: transparent;
+  animation: inverse 2.5s linear;
+}
+.conteneur__loader--filtre--sat {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border-radius: 50%;
+  animation: 0.1s satgros linear 2s forwards;
+}
+.conteneur__loader--filtre--sat:nth-child(1) {
+  top: 175px;
+  right: 16px;
+  background: radial-gradient(#9356DC 50%, #fff 0%);
+}
+.conteneur__loader--filtre--sat:nth-child(2) {
+  left: 115px;
+  bottom: 227px;
+  background: radial-gradient(#99E2D0 50%, #fff 0%);
+}
+.conteneur__loader--filtre--sat:nth-child(3) {
+  top: 175px;
+  left: 16px;
+  background: radial-gradient(#FF79DA 50%, #fff 0%);
+}
+.conteneur__loader__texte {
+  height: 40px;
+  position: absolute;
+  top: 95px;
+  left: 33px;
+  z-index: 3;
+  padding-right: 2px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 0px;
+  background: linear-gradient(135deg, #9356DC, #99E2D0, #FF79DA);
+  font-family: "Shrikhand", cursive;
+  font-size: 1.9rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  overflow: hidden;
+}
+.conteneur__loader__texte--proj {
+  position: absolute;
+  height: 200px;
+  width: 630px;
+  top: -77px;
+  left: 0px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, transparent, black 20%);
+  transform: translateX(-220px);
+  animation: projo 1.8s linear forwards;
+}
+.conteneur__loader__texte--texte {
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-right: 2px;
+  z-index: -1;
+  background: linear-gradient(135deg, #9356DC, #99E2D0, #FF79DA);
+  font-family: "Shrikhand", cursive;
+  font-size: 1.9rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: flash 0.1s linear 2s forwards;
+}
+.conteneur__loader__icone {
+  position: absolute;
+  left: 98.75px;
+  top: 40px;
+  z-index: 4;
+  background: linear-gradient(135deg, #9356DC, #99E2D0, #FF79DA);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 2.5rem;
+  animation: couvert 2.5s linear forwards;
+  /* ombre couvert */
+}
+.conteneur__loader__icone::after {
+  content: "";
+  width: 32.5px;
+  height: 32.5px;
+  position: absolute;
+  top: 34px;
+  left: 0px;
+  border-radius: 50%;
+  background: #9356DC;
+  filter: blur(15px);
+  transform: scale3d(1, 0.3, 1);
+}
+.conteneur__loader--point {
+  width: 180px;
+  height: 36px;
+  display: flex;
+  position: absolute;
+  top: 130px;
+  left: 25px;
+  z-index: 4;
+}
+
+/* 5 points horizontaux */
+.point {
+  width: 36px;
+  height: 36px;
+  display: block;
+  border-radius: 50%;
+  filter: blur(2px);
+  transform: scale(0.1);
+}
+.point:nth-child(1) {
+  background: radial-gradient(#9356DC 50%, #fff 0%);
+  animation: point 0.8s linear 0s 3;
+}
+.point:nth-child(2) {
+  background: radial-gradient(#99E2D0 50%, #fff 0%);
+  animation: point 0.8s linear 0.1s 3;
+}
+.point:nth-child(3) {
+  background: radial-gradient(#FF79DA 50%, #fff 0%);
+  animation: point 0.8s linear 0.2s 3;
+}
+.point:nth-child(4) {
+  background: radial-gradient(#99E2D0 50%, #fff 0%);
+  animation: point 0.8s linear 0.3s 3;
+}
+.point:nth-child(5) {
+  background: radial-gradient(#9356DC 50%, #fff 0%);
+  animation: point 0.8s linear 0.4s 3;
+}
+
+@keyframes projo {
+  0% {
+    transform: translateX(-380px);
+  }
+  50% {
+    transform: translateX(-90px);
+  }
+  55% {
+    transform: translateX(-80px);
+  }
+  75% {
+    transform: translateX(-270px);
+  }
+  80% {
+    transform: translateX(-280px);
+  }
+  90% {
+    transform: translateX(-210px);
+  }
+  100% {
+    transform: translateX(-240px);
+  }
+}
+@keyframes flash {
+  100% {
+    z-index: 2;
+  }
+}
+@keyframes loader {
+  99.99% {
+    height: 100%;
+    width: 100%;
+  }
+  100% {
+    height: 0%;
+    width: 0%;
+  }
+}
+@keyframes disparait {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes inverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  18% {
+    transform: rotate(-64.8deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  22% {
+    transform: rotate(-7.2deg);
+  }
+  24% {
+    transform: rotate(0deg);
+  }
+  52% {
+    transform: rotate(-100.8deg);
+  }
+  54% {
+    transform: rotate(0deg);
+  }
+  56% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-50.4deg);
+  }
+  72% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes satgros {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes couvert {
+  0% {
+    opacity: 0;
+  }
+  18% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0;
+  }
+  52% {
+    opacity: 0;
+  }
+  54% {
+    opacity: 1;
+  }
+  56% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes point {
+  0% {
+    transform: scale(0.1);
+  }
+  25% {
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  60% {
+    transform: scale(0.1);
+  }
+  80% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(0.1);
+  }
+}
 /**/
 .header {
   text-align: center;
@@ -973,11 +1474,11 @@ a {
   position: relative;
   padding: 1em 0;
 }
-.header > a {
+.header__retourBtn {
   font-size: 1.5em;
   padding-left: 1em;
 }
-.header > a::before {
+.header__retourBtn::before {
   content: "\f060";
 }
 .header__logo {
@@ -989,6 +1490,10 @@ a {
 /***********************************/
 /***********************************/
 /***********************************/
+body:before {
+  content: "";
+}
+
 @media all and (max-width: 570) {
   body > header {
     height: 75px;

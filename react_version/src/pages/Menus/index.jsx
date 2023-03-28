@@ -15,15 +15,16 @@ const Carte = ({data, bem="", subComponent, updatableka, id}) => {
     const menuTitre = Object.keys(data)[0]
     , plats = data[menuTitre]
 	, handelClick = () => {
-		alert('ok', user_)
+		// alert('ok', user_)
 		console.log(user_);
-		setUser_({...user_,liked:[...user_.liked,data.makeClickable[1].to]})
+		setUser_({...user_,liked:[...user_?.liked,data.makeClickable[1].to]})
 	}
 
     console.log(data)
     console.log(plats) 
     
     return <>
+        <img src="assets/images/restaurants/restaurant-1.jpg" alt="" className={bem+"__img"} />
         <h1 className={bem+"__titre"}>
             {menuTitre}
             <input type="checkbox" id="heart" onClick={()=>{handelClick()}} />
@@ -33,19 +34,19 @@ const Carte = ({data, bem="", subComponent, updatableka, id}) => {
                 <Link to={"/menu/delete/"+id}><i className="fas fa-trash-alt"></i></Link>
             </DivCRUDStyled>}
         </h1>
-        {/** * IL FAUT TROUVER UNE SOLUTION AU FAIT QUE data DEVIENNE undefined !!! 
+        {/** * IL FAUT TROUVER UNE SOLUTION AU FAIT QUE data DEVIENNE undefined !!! */}
         {Object.keys(plats).map((typeMenu,key) => {
             let plat = {[typeMenu]: plats[typeMenu]}
             console.log(key)
             console.log(typeMenu)
             console.log(plat);
                     // return <Menus data={carte} bem="" subComponent="plat" />
-            return <PlatSection key={key} className={bem+"__section"} data={plat} bem="plat" updatableka={updatableka} />
-        })} */}
+            return <PlatSection _key={key} className={bem+"__section"} data={plat} bem="plat" updatableka={updatableka} />
+        })} 
         <Link to="#" className="carte__btn">Commander</Link>
     </> 
 }
-function PlatSection({data, bem, key, className}) {
+function PlatSection({data, bem, _key, className}) {
     // console.log(data);
     // console.log(Object.keys(data));
     // console.log(Object.keys(data)[0]);
@@ -55,7 +56,7 @@ function PlatSection({data, bem, key, className}) {
     return <section className={className+" "+bem}>
         <h2 className={bem+"__titre"}>{titre.toUpperCase()}</h2>
         <ul className={bem+"__liste"}>
-            { languettes.map((languette,key_) => <li key={key+"_"+key_}>
+            { languettes.map((languette,key_) => <li key={_key+"_"+key_}>
                 <h3>{languette.titre}</h3>
                 <p><span>{languette.soustitre}</span><span>{languette.prix}</span></p>
             </li>)}
@@ -69,34 +70,39 @@ let user_,setUser_
 
 export default function Menus() {
 
-    let id = useParams().id-- || 0
+    let id = useParams().id - 1 || 0
     , [Contents, setContents] = useState([])
-	, {token, datas, setDatas, user, setUser} = useContext(AuthContext)
+	, {token, datas, setDatas, user, setUser, setOnHome} = useContext(AuthContext)
     , navigate = useNavigate()
     , [menuHTML, setTheMenu] = useState()
     , [menuTitre, setMenuTitre] = useState()
 	, generateOutput = (contents) => { 
-        let { carte } = contents
-        , data = {[Object.keys(carte)[id]]: Object.values(carte)[id]}
-		, contents_tmp = []
-		console.log(data)
-        console.log(contents)
+        if(contents){
+            let { carte } = contents
+            , data = {[Object.keys(carte)[id]]: Object.values(carte)[id]}
+            , contents_tmp = []
+            console.log(data)
+            console.log(contents)
 
-		contents_tmp.push(<Carte data={data} bem="carte" subComponent="plat" updatableka={user} id={id} />)
-		setContents(contents_tmp)
+            contents_tmp.push(<Carte data={data} bem="carte" subComponent="plat" updatableka={user} id={id} />)
+            setContents(contents_tmp)
+        }
 	}
 	[user_,setUser_] = [user, setUser]
 	console.log(token)
     console.log(datas) 
+    console.log(useParams().id) 
 
     
     useEffect(() => {
+        setOnHome(false)
         console.log(token)
         console.log(datas) 
         console.log("1,2, teste, test, 1,2, test");
-	    if(!token)navigate('/login/menu')
-		else generateOutput(datas.menus)
-    }, [user])
+	    // if(!token)navigate('/login/menu')
+		// else generateOutput(datas.menus)
+		generateOutput(datas?.menus)
+    }, [datas,user])
 
     
     return <>

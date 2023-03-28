@@ -8,6 +8,7 @@
 %listChoice{
     padding:3em 1em;
     counter-reset: i;
+    background: #fff;
     &__titre {
         @extend %titreType1_level2;
     }
@@ -20,7 +21,8 @@
         >li {
             position: relative;
             display: flex;
-            background: $dark;
+            // background: $dark;
+            background: white;
             box-shadow: $shadow1;
             border-radius: 1.5em;
             margin-bottom: 2em;
@@ -29,7 +31,9 @@
         }
         &.--languette_0,&--languette_0{
             >li{
-                width: 33%;
+                @include from-desktop{
+                    width: 30%;
+                }
                 flex-flow: wrap;
                 box-shadow: $shadow2;
                 padding: 1em;
@@ -248,12 +252,18 @@ $listCards: listCards();
     background-size: contain;
     padding: 270px 0 5em;
 
+    &__img {
+        height:400px; 
+        margin-bottom:-100px;
+        background:#99E2D0;
+    }
     &__titre {
         @extend %titreType0_level1;
         background: $dark;
         border-radius: 1.5em 1.5em 0 0;
         padding: 1.25em 1em;
         position: relative;
+        box-shadow: 0 -10px 10px .1px $black5;
 
         >input {
             display: none;
@@ -304,7 +314,7 @@ $listCards: listCards();
         z-index: 1;
 
         @include from-tablette {
-            background: rgba(255, 255, 255, .8);
+            // background: rgba(255, 255, 255, .8);
         }
 
         padding:1em;
@@ -328,6 +338,11 @@ $listCards: listCards();
         &__liste {
             @extend %listChoice__liste;
             @extend %listChoice__liste--languette_0;
+            >li{
+                animation: lift_up 1s 1;
+                &:nth-of-type(2){animation-delay:100ms}
+                &:nth-of-type(3){animation-delay:200ms}
+            }
         }
     }
     
@@ -344,6 +359,10 @@ $listCards: listCards();
 }
 @mixin carteRestaurant($paramMixi: $carteRestaurant){
     @extend %carteRestaurant;
+
+    &__img {
+        @extend %carteRestaurant__img;
+    }
 
     &__section {
         @extend %carteRestaurant__section;

@@ -2,6 +2,8 @@ import {useEffect, useState, useContext} from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 import { AuthContext } from '../../utils/auth'
+// import LoaderSpinner from './components/_/LoaderSpinner'
+import LoaderSpinner2 from './../../components/_/LoaderSpinner2'
 
 
 function Jumbotron({data, bem}) {
@@ -58,11 +60,11 @@ function CardFigure({data, bem, key_}) {
 
 	const id_menu = data.makeClickable[1].to.substr(data.makeClickable[1].to.lastIndexOf('/')+1)
 	, handelClick = () => {
-		alert('ok', user_)
+		// alert('ok', user_)
 		console.log(user_)
-		setUser_({...user_,liked:[...user_.liked,id_menu]})
+		// setUser_({...user_,liked:[...user_.liked,id_menu]})
 	}
-	, checked = user_.liked.find(x=>x==id_menu)?"checked":"false"
+	, checked = user_?.liked?.find(x=>x==id_menu)?"checked":"false"
 	
 	return <figure className={bem}>
 		<Link to={data.makeClickable[1].to} className={bem+"__makeClickable"}></Link>
@@ -70,7 +72,7 @@ function CardFigure({data, bem, key_}) {
 		<figcaption className={bem+"__content"}>
 			<h3>{data.content[0].h3}</h3>
 			<p>{data.content[0].p}</p>
-			<input type="checkbox" id={"card-"+key_} {...(user_.liked.find(x=>x==id_menu) ? {checked:"checked"} : {})} />
+			<input type="checkbox" id={"card-"+key_} {...(user_?.liked?.find(x=>x==id_menu) ? {checked:"checked"} : {})} />
 			<label htmlFor={"card-"+key_} onClick={()=>{handelClick()}}></label>
 		</figcaption>
 	</figure>
@@ -80,33 +82,39 @@ let user_,setUser_
 function Home() {
 
 	let [Contents, setContents] = useState([])
-	, {token, datas, user, setUser, setDatas} = useContext(AuthContext)
+	, {token, datas, user, setUser, setDatas, setOnHome} = useContext(AuthContext)
     , navigate = useNavigate()
 	, generateOutput = (contents) => {
-		let { fonctionnement, restaurants, jumbotron } = contents
-		, contents_tmp = []
-		console.log(contents)
+		if(contents){
+			let { fonctionnement, restaurants, jumbotron } = contents
+			, contents_tmp = []
+			console.log(contents)
 
-		contents_tmp.push(<Jumbotron data={jumbotron} bem="jumbotron" />)
-		contents_tmp.push(<ListeNumerotee data={fonctionnement} bem="fonctionnement" />)
-		contents_tmp.push(<Cards data={restaurants} bem="restaurants" subComponent="cards"/>)
-		setContents(contents_tmp)
+			contents_tmp.push(<Jumbotron data={jumbotron} bem="jumbotron" />)
+			contents_tmp.push(<ListeNumerotee data={fonctionnement} bem="fonctionnement" />)
+			contents_tmp.push(<Cards data={restaurants} bem="restaurants" subComponent="cards"/>)
+			setContents(contents_tmp)
+		}
 	}
 	[user_,setUser_] = [user, setUser]
 	console.log(token)
 
 	
     useEffect(() => {
+        setOnHome(true)
+		console.log(datas)
 		console.log(token)
         console.log("1,2, teste, test, 1,2, test")
-	    if(!token)navigate('/login/menu')
-		else generateOutput(datas.home)
+	    // if(!token)navigate('/login/menu')
+		// else generateOutput(datas.home)
+		generateOutput(datas?.home)
 	}, [datas])
 
 	
 
 	
 	return <>
+		<LoaderSpinner2 />
 		{Contents}
 	</>
 }

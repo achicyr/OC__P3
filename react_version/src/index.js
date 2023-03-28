@@ -16,6 +16,8 @@ import { AuthProvider } from './utils/auth'
 //import reportWebVitals from './reportWebVitals';
 
 const MainStyled = styled.main`
+background: rgba(234,234,234);
+padding-bottom:5em;
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,6 +26,7 @@ root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<AuthProvider>
+			{/* <LoaderSpinner /> */}
 		    <Header />
 			<MainStyled>
 				<Routes>

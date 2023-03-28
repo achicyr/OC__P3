@@ -11,7 +11,7 @@ iteration-count | direction | fill-mode | play-state | name
 }
 
 
-@keyframes map{
+@keyframes vibrate0{
     5%{transform: translateX(-2px) rotateZ(-20deg);}
     15%{transform: translateX(2px) rotateZ(20deg);}
     30%{transform: translateX(-4px) rotateZ(-45deg);}
@@ -21,6 +21,17 @@ iteration-count | direction | fill-mode | play-state | name
     85%{transform: translateX(-2px) rotateZ(-20deg);}
     95%{transform: translateX(2px) rotateZ(20deg);}
     100%{transform: translateX(0px) rotateZ(0deg);}
+}
+@keyframes vibrate1{
+    5%{transform: translateY(-2px) rotateX(-20deg);}
+    15%{transform: translateY(2px) rotateX(20deg);}
+    30%{transform: translateY(-4px) rotateX(-45deg);}
+    45%{transform: translateY(4px) rotateX(45deg);}
+    60%{transform: translateY(-4px) rotateX(-45deg);}
+    75%{transform: translateY(4px) rotateX(45deg);}
+    85%{transform: translateY(-2px) rotateX(-20deg);}
+    95%{transform: translateY(2px) rotateX(20deg);}
+    100%{transform: translateY(0px) rotateX(0deg);}
 }
 
 
@@ -44,3 +55,9 @@ iteration-count | direction | fill-mode | play-state | name
 }
 
 
+@keyframes lift_up {
+    0%{transform: translateY(20px);opacity:.3;}
+    10%{transform: translateY(20px);opacity:.3;}
+    // 0%{transform: translateY(-0px);}
+    100%{transform: translateY(0px);opacity:1;}
+}
